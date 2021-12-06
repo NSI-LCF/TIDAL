@@ -59,10 +59,10 @@ CREATE TABLE `professeurs_absents` (
 -- Déchargement des données de la table `professeurs_absents`
 --
 
-INSERT INTO `professeurs_absents` (`id_prof`, `nom_prof`, `id_matière`, `nom_matière`, `sexe`) VALUES
-(1, 'Jany', 1, 'NSI', 'homme'),
-(2, 'Bert', 2, 'philosophie', 'homme'),
-(3, 'Oliva', 2, 'philosophie', 'homme');
+INSERT INTO `professeurs_absents` (`id_prof`, `nom_prof`, `id_matière`, `nom_matière`, `civilité`) VALUES
+(1, 'Jany', 1, 'NSI', 'M'),
+(2, 'Bert', 2, 'Philosophie', 'M'),
+(3, 'Oliva', 2, 'Philosophie', 'M');
 
 --
 -- Index pour les tables déchargées
