@@ -1,6 +1,46 @@
+*{
+    font-family: bebas-neue-pro, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    }
 body{
-    width: 720px;
-    height: 1280px;
+    width: 1055px;
+    height: 1870px;
     border: 1px solid green;
     margin: 2px;
   }
+  
+.boite {
+    background-color: paleturquoise;
+    margin: 10px;
+    height: 140px;
+    text-align: center;
+  }
+
+#date{
+background-color: paleturquoise;
+margin: 10px;
+height: 40px;
+text-align: center;
+}
+
+#meteo{
+background-color: paleturquoise;
+margin: 10px;
+height: 140px;
+text-align: center;
+}
+
+#cantine{
+    background-color: paleturquoise;
+    margin: 10px;
+    height: 130px;
+    text-align: center;
+    }
+
+#cantine{
+    background-color: paleturquoise;
+    margin: 10px;
+    height: 130px;
+    text-align: center;
+    }
