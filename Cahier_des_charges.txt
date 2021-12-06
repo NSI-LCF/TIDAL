@@ -1,0 +1,25 @@
+Cahier des charges:
+
+Dates; heure; semaine A/B
+Passages à la cantine par classe
+Profs absent
+Meteo
+information administrative (bac blanc, Parcours Sup…)
+News (relié à un journal)
+Décompte des vacances
+
+Panneau : 9:16 
+
+1080*1920
+
+Répartition:
+Front Office :Gaspard, Pau, Marzouk	
+Back Office :Aidan, Bernat	
+Interface de modification :Ianis + pau
+    engros il faudrait que sur l'index, avec un user et mdp, la vie scolaire puisse se connecter pour mettre : les profs absents, les passages à la cantines,
+    eventuellement des alertes (attentas, intrusion etc) et les infoadministratives
+Meteo:  Alex
+Time: Guillerme
+
+
+GitHub : https://github.com/NSI-LCF/TIDAL
