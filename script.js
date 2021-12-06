@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content=
-        "width=device-width, 
-        initial-scale=1.0" />
-  
-    <title>Digital Clock</title>
-  
-    <style>
-        #clock {
-            font-size: 175px;
-            font-family: monospace;
-            width: 900px;
-            margin: 200px;
-            text-align: center;
-
-        }
-    </style>
-</head>
-  
-<body>
-    <div id="clock">8:10:45</div>
-  
-    <script>
-        setInterval(showTime, 1000);
+setInterval(showTime, 1000);
         function showTime() {
             let time = new Date();
             let hour = time.getHours();
@@ -105,12 +78,10 @@
             let currentTime = day + " " + date + " " + mois + " " + hour + ":" 
                 + min + ":" + sec + am_pm;
   
-            document.getElementById("clock")
+            document.getElementById("date")
                 .innerHTML = currentTime;
         }
   
         showTime();
-    </script>
-</body>
-  
-</html> 
+
+
