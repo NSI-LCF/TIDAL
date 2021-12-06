@@ -1,2 +1,3 @@
 # TIDAL 
-Terminal d'Information Dynamique de l'Annexe Lycée
+aka : Terminal d'Information Dynamique de l'Annexe Lycée
+Projet de classe de la Terminale Spécialitée NSI
