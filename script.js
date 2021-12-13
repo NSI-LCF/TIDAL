@@ -19,61 +19,15 @@ setInterval(showTime, 1000);
             min = min < 10 ? "0" + min : min;
             sec = sec < 10 ? "0" + sec : sec;
             
-            let day=""
-
-            if (time.getDay()==1){
-                day="Lundi"
-            } 
-            if (time.getDay()==2){
-                day="Mardi"
-            } 
-            if (time.getDay()==3){
-                day="Mercredi"
-            } 
-            if (time.getDay()==4){
-                day="Jeudi"
-            } 
-            if (time.getDay()==5){
-                day="Vendredi"
-            } 
+            let days=["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
+            
+            let day=days[time.getDay()]
             
             let date=time.getDate()
 
-            let Mois=time.getMonth()
+            let Mois=["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
             
-            if (Mois==9){
-                mois="Septembre"
-            }
-            if (Mois==10){
-                mois="Octobre"
-            }
-            if (Mois==11){
-                mois="Novembre"
-            }
-            if (Mois==12){
-                mois="Décembre"
-            }
-            if (Mois==1){
-                mois="Janvier"
-            }
-            if (Mois==2){
-                mois="Février"
-            }
-            if (Mois==3){
-                mois="Mars"
-            }
-            if (Mois==4){
-                mois="Avril"
-            }
-            if (Mois==5){
-                mois="Mai"
-            }
-            if (Mois==6){
-                mois="Juin"
-            }
-            if (Mois==7){
-                mois="Juillet"
-            }
+            let mois=Mois[time.getMonth()]
 
             let currentTime = day + " " + date + " " + mois + " " + hour + ":" 
                 + min + ":" + sec + am_pm;
