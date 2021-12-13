@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-        .icone_meteo
+        .icone_meteogmoijerhgoijdrg
         {
          width:108px;
          height:108px;
