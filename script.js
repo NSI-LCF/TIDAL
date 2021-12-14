@@ -22,7 +22,7 @@ setInterval(showTime, 1000);
             let currentTime = day + " " + date + " " + mois + " " + hour + ":" 
                 + min + ":" + sec;
   
-            document.getElementById("date")
+            document.getElementById("heure")
                 .innerHTML = currentTime;
         }
   
