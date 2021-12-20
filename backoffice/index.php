@@ -28,7 +28,7 @@ include_once 'php/footer.php';
 
 <body id="reportsPage">
     <div class="" id="home">
-        <?php echo ShowNavbar(); ?>
+        <?php echo ShowNavbar('annonces'); ?>
         <div class="container">
             <div class="row">
                 <div class="col">

@@ -1,5 +1,5 @@
 <?php
-function ShowNavbar() {
+function ShowNavbar($active = null) {
     return '<nav class="navbar navbar-expand-xl">
     <div class="container h-100">
         <a class="navbar-brand" href="index.html">
@@ -14,7 +14,7 @@ function ShowNavbar() {
             <ul class="navbar-nav mx-auto h-100">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.php">
+                    <a class="nav-link'. ($active == "annonces" ? ' active': '') .'" href="index.php">
                     <i class="fas fa-bullhorn"></i>
                         Annonces
                         <span class="sr-only">(current)</span>
@@ -22,28 +22,28 @@ function ShowNavbar() {
                 </li>
 
                 <li class="nav-item">
-                <a class="nav-link" href="cantine.php">
+                <a class="nav-link'. ($active == "absences" ? ' active': '') .'" href="absences.php">
                     <i class="far fa-user"></i>
                     Absences
                 </a>
             </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="cantine.php">
+                    <a class="nav-link'. ($active == "cantine" ? ' active': '') .'" href="cantine.php">
                     <i class="fas fa-utensils"></i>
                         Cantine
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="semaines.php">
+                    <a class="nav-link'. ($active == "semaines" ? ' active': '') .'" href="semaines.php">
                     <i class="far fa-calendar-alt"></i>
                         Semaines
                     </a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    <a class="nav-link '. ($active == "settings" ? 'active ': '') .'dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-cog"></i>
                         <span>
