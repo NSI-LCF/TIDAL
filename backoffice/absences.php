@@ -9,9 +9,12 @@ include_once 'php/footer.php';
 
 // Absences Modules
 include_once 'php/Absences/getAbsences.php';
+include_once 'php/Absences/postAbsences.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    addAbsence($_POST["name"], $_POST["begin_date"], $_POST["end_date"]);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </table>
                     </div>
                 </div>
-                <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mx-auto">
                     <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
                         <div class="row">
                             <div class="col-12">
@@ -91,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </div>
                         <div class="row tm-edit-product-row">
-                            <div class="col-xl-6 col-lg-6 col-md-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12">
                                 <form action="" method="post" class="tm-edit-product-form">
                                     <div class="form-group mb-6">
                                         <label for="name">Nom
@@ -99,12 +102,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <input id="name" name="name" type="text" class="form-control validate" />
                                     </div>
                                     <div class="row">
-                                        <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                            <label for="start_date">Jour début
+                                        <div class="form-group col">
+                                            <label for="begin_date">Jour début
                                             </label>
-                                            <input id="start_date" name="start_date" type="text" value="21-01-01 08:30" class="form-control validate" data-large-mode="true" />
+                                            <input id="begin_date" name="begin_date" type="text" value="21-01-01 08:30" class="form-control validate" data-large-mode="true" />
                                         </div>
-                                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                        <div class="form-group col">
                                             <label for="end_date">Jour fin
                                             </label>
                                             <input id="end_date" name="end_date" type="text" value="21-01-01 18:30" class="form-control validate" data-large-mode="true" />
@@ -113,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
 
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase">Update Now</button>
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase">Add</button>
                             </div>
                             </form>
                         </div>
