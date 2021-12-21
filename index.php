@@ -5,112 +5,63 @@
   <title>Projet TIDAL</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
-  <style>
-    
-    .taille{
-        width:1080px;
-        height:300px;
-        border: 2px solid darkblue;
-        overflow: hidden;
-    }
-    .image_info{
-        width:256px;
-        height:144px;
-    }
-    .police_info_titre{
-        font-family : bebas-neue-pro, sans-serif;
-
-
-    }
-    .police_info_description{
-        font-family : bebas-neue-pro, sans-serif; 
-
-    }
-    .scroll-text{
-		overflow-y: auto;
-		height: 300px;
-        width: 1080px;
-    }
-
-   
-
-</style>
 </head>
 <body>
   <div class="bg"></div>
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
   <div class="boite" id="date"><p id="heure" >Date / Heure / Semaine</p></div>
-  <div class="boite" id="meteo"><p>Méteo</p><?php
-/* 42.505636,1.515349
-6215b21fb6ed42d8980160421210212
-*/
+  <div class="boite" id="meteo"><p>Méteo</p>
+        <?php
+        /* 42.505636,1.515349
+        6215b21fb6ed42d8980160421210212*/
 
+        $meteo_xml=new SimpleXMLElement(file_get_contents("https://api.weatherapi.com/v1/current.xml?key=6215b21fb6ed42d8980160421210212&q=42.505636,1.515349&aqi=no"));
+        /*print("<pre>");
+        var_dump($meteo_xml);
+        print("</pre>");
+        $current=$meteo_xml->current;
+        print("<pre>");
+        var_dump($current);
+        print("</pre>");*/
 
-$meteo_xml=new SimpleXMLElement(file_get_contents("https://api.weatherapi.com/v1/current.xml?key=6215b21fb6ed42d8980160421210212&q=42.505636,1.515349&aqi=no"));
-/*print("<pre>");
-var_dump($meteo_xml);
-print("</pre>");
-$current=$meteo_xml->current;
-print("<pre>");
-var_dump($current);
-print("</pre>");*/
+        /* TEMPS MAINTENANT */
+        /* TEXTE */
+        $texte=$meteo_xml->current->condition->text;
+        /* ICONE METEO */
+        $icone=$meteo_xml->current->condition->icon;
+        print("<div class='globalmeteo'><div id='meteoJ'><img class='icone_meteo' src='$icone' alt='logo'/><br/>$texte</br>");
+        /* TEMPERATURE */
+        $temperature=$meteo_xml->current->temp_c;
+        print("Moyenne: $temperature ºC</div>");
 
+        /* PRÉVISION */
+        $forecast_xml=new SimpleXMLElement(file_get_contents("https://api.weatherapi.com/v1/forecast.xml?key=6215b21fb6ed42d8980160421210212&q=42.505636,1.515349&days=1&aqi=no&alerts=no"));
+        print("<pre>");
+        //var_dump($forecast_xml);
+        print("</pre>");
 
-/* TEMPS MAINTENANT */
-/* TEXTE */
-$texte=$meteo_xml->current->condition->text;
-print("$texte");
-/* ICONE METEO */
-$icone=$meteo_xml->current->condition->icon;
-print("<img class='icone_meteo' src='$icone' alt='logo' />");
-/* TEMPERATURE */
-$temperature=$meteo_xml->current->temp_c;
-print("Moyenne: $temperature ºC");
-
-
-
-
-/* PRÉVISION */
-
-$forecast_xml=new SimpleXMLElement(file_get_contents("https://api.weatherapi.com/v1/forecast.xml?key=6215b21fb6ed42d8980160421210212&q=42.505636,1.515349&days=1&aqi=no&alerts=no"));
-
-print("<pre>");
-//var_dump($forecast_xml);
-print("</pre>");
-
-
-
-
-/* JOUR 1 */
-/* TEXTE*/
-$texte1=$forecast_xml->forecast->forecastday->day->condition->text;
-print("$texte1");
-
-/* ICONE METEO */
-$icone1=$forecast_xml->forecast->forecastday->day->condition->icon;
-print("<img class='icone_meteo' src='$icone1' alt='logo' />");
-
-
-/* MIN TEMP */
-$min_temp=$forecast_xml->forecast->forecastday->day->mintemp_c;
-print("Minimum: $min_temp ºC");
-print("</br>");
-
-/* MAX TEMP */
-$max_temp=$forecast_xml->forecast->forecastday->day->maxtemp_c;
-print("Maximum: $max_temp ºC");
-print("</br>");
-
-/* AVG TEMP */
-$avg_temp=$forecast_xml->forecast->forecastday->day->avgtemp_c;
-print("Moyenne: $avg_temp ºC</p>");
-
-//var_dump($forecast_xml->forecast->forecastday->day);
-
-
-
-?></div>
+        /* JOUR 1 */
+        /* TEXTE*/
+        $texte1=$forecast_xml->forecast->forecastday->day->condition->text;
+        /* ICONE METEO */
+        $icone1=$forecast_xml->forecast->forecastday->day->condition->icon;
+        print("<div id='meteoJ1'><img class='icone_meteo' src='$icone1' alt='logo' /><br>$texte1</br>");
+        /* MIN TEMP */
+        $min_temp=$forecast_xml->forecast->forecastday->day->mintemp_c;
+        print("Minimum: $min_temp ºC");
+        print("</br>");
+        /* MAX TEMP */
+        $max_temp=$forecast_xml->forecast->forecastday->day->maxtemp_c;
+        print("Maximum: $max_temp ºC");
+        print("</br>");
+        /* AVG TEMP */
+        $avg_temp=$forecast_xml->forecast->forecastday->day->avgtemp_c;
+        print("Moyenne: $avg_temp ºC</p></div></div>");
+        //var_dump($forecast_xml->forecast->forecastday->day);
+        ?>
+        
+        </div>
   <div class="boite" id="cantine"><p>Cantine</p><img src="images/template.jpg"></div>
   <div class="boite" id="profsabs"><p>Professeurs Absent</p></div>
   <div class="boite" id="info"><p>Informations Administratives</p></div>

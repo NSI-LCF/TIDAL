@@ -111,3 +111,49 @@ text-align: center;
   text-align: center;
   color: white;
 }
+.global{
+  border: 10px;
+  border-color: black;
+  display: flex;
+  justify-content: space-around;  }
+#meteoJ{
+  border: 10px;
+  border-color: black;
+  float:left;
+  width:60%;
+}
+#meteoJ1{
+  border: 10px;
+  border-color: black;
+  margin-left:60%
+}
+.icone_meteo{
+  height:100px;
+  width:100px;
+}
+
+
+.taille{
+  width:1080px;
+  height:300px;
+  border: 2px solid darkblue;
+  overflow: hidden;
+}
+.image_info{
+  width:256px;
+  height:144px;
+}
+.police_info_titre{
+  font-family : bebas-neue-pro, sans-serif;
+
+
+}
+.police_info_description{
+  font-family : bebas-neue-pro, sans-serif; 
+
+}
+.scroll-text{
+overflow-y: auto;
+height: 300px;
+  width: 1080px;
+}
