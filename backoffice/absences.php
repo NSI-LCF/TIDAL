@@ -1,8 +1,18 @@
 <?php
 
+// Configuration
+include_once 'php/conf.php';
+
 // Front End Modules
 include_once 'php/navbar.php';
 include_once 'php/footer.php';
+
+// Absences Modules
+include_once 'php/Absences/getAbsences.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,18 +63,23 @@ include_once 'php/footer.php';
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">#1</th>
-                                    <td><b>M. Jany</b></td>
-                                    <td>2021-12-20 | 11:05</td>
-                                    <td>2021-12-20 | 12:05</td>
-                                    <td>
-                                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-                                            <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                            <div class="tm-status-circle cancelled"></div>
-                                        </form>
-                                    </td>
-                                </tr>
+                                <?php
+                                foreach (getAbsences() as $absence) {
+                                    echo '<tr>
+                                        <th scope="row">'. $absence["id"] .'</th>
+                                        <td><b>'. $absence["name"] .'</b></td>
+                                        <td>'. $absence["begin_date"] .'</td>
+                                        <td>'. $absence["end_date"] .'</td>
+                                        <td>
+                                            <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
+                                                <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
+                                                <div class="tm-status-circle cancelled"></div>
+                                            </form>
+                                        </td>
+                                    </tr>';
+                                }
+                                ?>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -86,26 +101,26 @@ include_once 'php/footer.php';
                                     </div>
                                     <div class="row">
                                         <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                            <label for="expire_date">Jour début
+                                            <label for="start_date">Jour début
                                             </label>
-                                            <input id="expire_date" name="expire_date" type="text" value="22 Oct, 2020" class="form-control validate" data-large-mode="true" />
+                                            <input id="start_date" name="start_date" type="text" value="22 Oct, 2020" class="form-control validate" data-large-mode="true" />
                                         </div>
                                         <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                            <label for="expire_date">Jour fin
+                                            <label for="end_date">Jour fin
                                             </label>
-                                            <input id="expire_date" name="expire_date" type="text" value="22 Oct, 2020" class="form-control validate" data-large-mode="true" />
+                                            <input id="end_date" name="end_date" type="text" value="22 Oct, 2020" class="form-control validate" data-large-mode="true" />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                            <label for="expire_date">Heure début
+                                            <label for="start_time">Heure début
                                             </label>
-                                            <input id="expire_date" name="expire_date" type="text" value="8h30" class="form-control validate" data-large-mode="true" />
+                                            <input id="start_time" name="start_time" type="text" value="8h30" class="form-control validate" data-large-mode="true" />
                                         </div>
                                         <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                            <label for="expire_date">Heure fin
+                                            <label for="end_time">Heure fin
                                             </label>
-                                            <input id="expire_date" name="expire_date" type="text" value="18h30" class="form-control validate" data-large-mode="true" />
+                                            <input id="end_time" name="end_time" type="text" value="18h30" class="form-control validate" data-large-mode="true" />
                                         </div>
                                     </div>
                             </div>
@@ -132,7 +147,11 @@ include_once 'php/footer.php';
     <!-- https://getbootstrap.com/ -->
     <script>
       $(function() {
-        $("#expire_date").datepicker();
+        $("#start_date").datepicker();
+      });
+
+      $(function() {
+        $("#end_date").datepicker();
       });
     </script>
 </body>
