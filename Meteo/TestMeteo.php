@@ -42,8 +42,8 @@ print("Moyenne: $temperature ºC");
 
 
 /* PRÉVISION */
-$forecast_xml=new SimpleXMLElement(file_get_contents("https://api.weatherapi.com/v1/forecast.xml?key=6215b21fb6ed42d8980160421210212&q=42.505636,1.515349&days=1&aqi=no&alerts=no"));
 
+$forecast_xml=new SimpleXMLElement(file_get_contents("https://api.weatherapi.com/v1/forecast.xml?key=6215b21fb6ed42d8980160421210212&q=42.505636,1.515349&days=1&aqi=no&alerts=no"));
 
 print("<pre>");
 //var_dump($forecast_xml);
@@ -74,10 +74,9 @@ print("</br>");
 
 /* AVG TEMP */
 $avg_temp=$forecast_xml->forecast->forecastday->day->avgtemp_c;
-print("Moyenne: $avg_temp ºC");
+print("Moyenne: $avg_temp ºC</p>");
 
 //var_dump($forecast_xml->forecast->forecastday->day);
-
 
 
 
