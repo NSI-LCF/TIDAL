@@ -37,6 +37,37 @@ include_once 'php/footer.php';
             </div>
             <!-- row -->
             <div class="row tm-content-row">
+            <div class="col-12 tm-block-col">
+                    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                        <h2 class="tm-block-title">Liste Semaines</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">SEMAINE</th>
+                                    <th scope="col">TYPE</th>
+                                    <th scope="col">JOUR DÉBUT</th>
+                                    <th scope="col">JOUR FIN</th>
+                                    <th scope="col">CHANGER LISTE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">#51</th>
+                                    <th>A</th>
+                                    <td>2021-12-20 | 11:05</td>
+                                    <td>2021-12-20 | 12:05</td>
+                                    <td>
+                                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+                                            <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
+                                            <div class="tm-status-circle moving"></div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
                 <div class="col-12 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
                         <h2 class="tm-block-title">Semaines Vacances</h2>
@@ -54,36 +85,6 @@ include_once 'php/footer.php';
                                 <tr>
                                     <th scope="row">#51</th>
                                     <th>ª</th>
-                                    <td>2021-12-20 | 11:05</td>
-                                    <td>2021-12-20 | 12:05</td>
-                                    <td>
-                                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-                                            <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                            <div class="tm-status-circle moving"></div>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-12 tm-block-col">
-                    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                        <h2 class="tm-block-title">Liste Semaines</h2>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">SEMAINE</th>
-                                    <th scope="col">TYPE</th>
-                                    <th scope="col">JOUR DÉBUT</th>
-                                    <th scope="col">JOUR FIN</th>
-                                    <th scope="col">CHANGER LISTE</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">#51</th>
-                                    <th>A</th>
                                     <td>2021-12-20 | 11:05</td>
                                     <td>2021-12-20 | 12:05</td>
                                     <td>
