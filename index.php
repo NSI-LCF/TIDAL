@@ -5,6 +5,36 @@
   <title>Projet TIDAL</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
+  <style>
+    
+    .taille{
+        width:1080px;
+        height:300px;
+        border: 2px solid darkblue;
+        overflow: hidden;
+    }
+    .image_info{
+        width:256px;
+        height:144px;
+    }
+    .police_info_titre{
+        font-family : bebas-neue-pro, sans-serif;
+
+
+    }
+    .police_info_description{
+        font-family : bebas-neue-pro, sans-serif; 
+
+    }
+    .scroll-text{
+		overflow-y: auto;
+		height: 300px;
+        width: 1080px;
+    }
+
+   
+
+</style>
 </head>
 <body>
   <div class="bg"></div>
@@ -16,9 +46,11 @@
   <div class="boite" id="profsabs"><p>Professeurs Absent</p></div>
   <div class="boite" id="info"><p>Informations Administratives</p></div>
   <div class="boite" id="data2"><p>News</p></div>
-  <div class="boite" id="vacances"><p>Décomptage Des Vacances</p></div>
+  <div class="boite" id="vacances"><p>Décompte Des Vacances</p></div>
 
-  <?php
+<?php
+$flux=new SimpleXMLElement(file_get_contents("https://www.france24.com/fr/europe/rss"));
+
 $last_update=$flux->channel->lastBuildDate;
 print("Source France 24 le :$last_update");
 print("");
@@ -77,7 +109,7 @@ function pageScroll()
     
     m=information[nb];
     
-    document.getElementById("data").innerHTML=m;
+    document.getElementById("data2").innerHTML=m;
 	nb=nb+1;
 	
     if (nb><?php print($nb_infos) ?>) 
