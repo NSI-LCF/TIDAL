@@ -10,9 +10,20 @@ foreach (range(1, 53) as $semaine) {
         $weekList[$semaine] = $lastLetter;
     };
 }
-
 if ($weekList[intval($currentWeek)] == True) {
-    echo 'Semaine ª';
+    echo 'Semaine A';
 } else {
     echo 'Semaine B';
 }
+
+function getStartAndEndDate($week, $year) {
+    $dto = new DateTime();
+    $dto->setISODate($year, $week);
+    $ret['week_start'] = $dto->format('Y-m-d');
+    $dto->modify('+6 days');
+    $ret['week_end'] = $dto->format('Y-m-d');
+    return $ret;
+  }
+  
+  $week_array = getStartAndEndDate(52,2013);
+  print_r($week_array);

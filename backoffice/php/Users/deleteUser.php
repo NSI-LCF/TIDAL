@@ -2,8 +2,8 @@
 function deleteUser($id){
     //deletes a user
     global $dbh;
-    $sql = "DELETE FROM `users` WHERE id='$id'";
+    $sql = "DELETE FROM `users` WHERE id=?";
     $sth = $dbh->prepare($sql);
-    $sth->execute();
+    $sth->execute([$id]);
 }
 ?>

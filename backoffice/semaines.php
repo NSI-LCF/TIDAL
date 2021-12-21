@@ -1,8 +1,19 @@
 <?php
 
+// Configuration
+include_once 'php/conf.php';
+
 // Front End Modules
 include_once 'php/navbar.php';
 include_once 'php/footer.php';
+
+// Semaines Modules
+include_once 'php/Semaines/getSemaines.php';
+include_once 'php/Semaines/getFirstLastDay.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,55 +55,61 @@ include_once 'php/footer.php';
                             <thead>
                                 <tr>
                                     <th scope="col">SEMAINE</th>
-                                    <th scope="col">TYPE</th>
                                     <th scope="col">JOUR DÉBUT</th>
                                     <th scope="col">JOUR FIN</th>
                                     <th scope="col">CHANGER LISTE</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">#51</th>
-                                    <th>ª</th>
-                                    <td>2021-12-20 | 11:05</td>
-                                    <td>2021-12-20 | 12:05</td>
-                                    <td>
-                                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-                                            <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                            <div class="tm-status-circle moving"></div>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <?php
+                                foreach (getSemaine('1') as $semaine) {
+                                    $week_array = getStartAndEndDate($semaine["semaine"],date('Y'));
+                                    echo '<tr>
+                                        <th scope="row">'. $semaine["semaine"] .'</th>
+                                        <td>'. $week_array['week_start'] .'</td>
+                                        <td>'. $week_array['week_end'] . '</td>                                          
+                                        <td>
+                                            <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
+                                                <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
+                                                <div class="tm-status-circle cancelled"></div>
+                                            </form>
+                                        </td>
+                                    </tr>';
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="col-12 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
-                        <h2 class="tm-block-title">Liste Semaines</h2>
+                        <h2 class="tm-block-title">Semaines Cours</h2>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">SEMAINE</th>
-                                    <th scope="col">TYPE</th>
                                     <th scope="col">JOUR DÉBUT</th>
                                     <th scope="col">JOUR FIN</th>
                                     <th scope="col">CHANGER LISTE</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">#51</th>
-                                    <th>A</th>
-                                    <td>2021-12-20 | 11:05</td>
-                                    <td>2021-12-20 | 12:05</td>
-                                    <td>
-                                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-                                            <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                            <div class="tm-status-circle moving"></div>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <?php
+                                foreach (getSemaine('0') as $semaine) {
+                                    $week_array = getStartAndEndDate($semaine["semaine"],date('Y'));
+                                    echo '<tr>
+                                        <th scope="row">'. $semaine["semaine"] .'</th>
+                                        <td>'. $week_array['week_start'] .'</td>
+                                        <td>'. $week_array['week_end'] . '</td>                                        
+                                        <td>
+                                            <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
+                                                <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
+                                                <div class="tm-status-circle cancelled"></div>
+                                            </form>
+                                        </td>
+                                    </tr>';
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
