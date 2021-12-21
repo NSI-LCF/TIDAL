@@ -11,7 +11,6 @@ include_once 'php/footer.php';
 include_once 'php/Absences/getAbsences.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
 }
 ?>
 
@@ -27,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- https://fonts.google.com/specimen/Roboto -->
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="jquery-ui-datepicker/jquery-ui.min.css" type="text/css" />
-    <!-- http://api.jqueryui.com/datepicker/ -->
+    <link rel="stylesheet" href="css/jquery.datetimepicker.min.css" type="text/css" />
+    <!-- https://plugins.jquery.com/datetimepicker/ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="css/templatemo-style.css">
@@ -66,12 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <?php
                                 foreach (getAbsences() as $absence) {
                                     echo '<tr>
-                                        <th scope="row">'. $absence["id"] .'</th>
-                                        <td><b>'. $absence["name"] .'</b></td>
-                                        <td>'. $absence["begin_date"] .'</td>
-                                        <td>'. $absence["end_date"] .'</td>
+                                        <th scope="row">' . $absence["id"] . '</th>
+                                        <td><b>' . $absence["name"] . '</b></td>
+                                        <td>' . $absence["begin_date"] . '</td>
+                                        <td>' . $absence["end_date"] . '</td>
                                         <td>
-                                            <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
+                                            <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
                                                 <div class="tm-status-circle cancelled"></div>
                                             </form>
@@ -79,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </tr>';
                                 }
                                 ?>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -103,24 +102,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="form-group mb-3 col-xs-12 col-sm-6">
                                             <label for="start_date">Jour début
                                             </label>
-                                            <input id="start_date" name="start_date" type="text" value="22 Oct, 2020" class="form-control validate" data-large-mode="true" />
+                                            <input id="start_date" name="start_date" type="text" value="21-01-01 08:30" class="form-control validate" data-large-mode="true" />
                                         </div>
                                         <div class="form-group mb-3 col-xs-12 col-sm-6">
                                             <label for="end_date">Jour fin
                                             </label>
-                                            <input id="end_date" name="end_date" type="text" value="22 Oct, 2020" class="form-control validate" data-large-mode="true" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                            <label for="start_time">Heure début
-                                            </label>
-                                            <input id="start_time" name="start_time" type="text" value="8h30" class="form-control validate" data-large-mode="true" />
-                                        </div>
-                                        <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                            <label for="end_time">Heure fin
-                                            </label>
-                                            <input id="end_time" name="end_time" type="text" value="18h30" class="form-control validate" data-large-mode="true" />
+                                            <input id="end_date" name="end_date" type="text" value="21-01-01 18:30" class="form-control validate" data-large-mode="true" />
                                         </div>
                                     </div>
                             </div>
@@ -141,18 +128,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- https://jquery.com/download/ -->
     <script src="js/moment.min.js"></script>
     <!-- https://momentjs.com/ -->
-    <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
-    <!-- https://jqueryui.com/download/ -->
+    <script src="js/jquery.datetimepicker.full.min.js"></script>
+    <!-- https://plugins.jquery.com/datetimepicker/ -->
     <script src="js/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
     <script>
-      $(function() {
-        $("#start_date").datepicker();
-      });
+        var d = new Date();
 
-      $(function() {
-        $("#end_date").datepicker();
-      });
+        $(function() {
+            $("#start_date").datetimepicker({
+                format: 'y-m-d H:i',
+                startDate: '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
+            });
+
+            $("#end_date").datetimepicker({
+                format: 'y-m-d H:i',
+                startDate: '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
+            });
+        });
     </script>
 </body>
 
