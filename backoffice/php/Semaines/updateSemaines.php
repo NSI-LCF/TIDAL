@@ -1,8 +1,8 @@
 <?php 
-function updateSemaine($semaine,$type,){
+function updateSemaine($semaine,$type){
     global $dbh;
-    $sql = "UPDATE `cantine` SET `type`=? where semaine = ? ";
+    $sql = "UPDATE `semaines` SET `type`=? where semaine = ? ";
     $sth = $dbh->prepare($sql);
-    $sth->execute([$type,$semaine]); 
+    $sth->execute([$type,$semaine]);
 }
 ?>

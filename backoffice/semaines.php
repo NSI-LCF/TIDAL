@@ -12,9 +12,14 @@ include_once 'php/footer.php';
 // Semaines Modules
 include_once 'php/Semaines/getSemaines.php';
 include_once 'php/Semaines/getFirstLastDay.php';
+include_once 'php/Semaines/updateSemaines.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    if ($_POST["type"] == "1") {
+        updateSemaine($_POST["semaine"], 0);
+    } else {
+        updateSemaine($_POST["semaine"], 1);
+    }
 }
 ?>
 
@@ -72,13 +77,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <td>'. $week_array['week_end'] . '</td>                                          
                                         <td>
                                             <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
-                                                <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                                <div class="tm-status-circle cancelled"></div>
+                                            <input type="hidden" name="semaine" value="'. $semaine["semaine"] .'">    
+                                            <input type="hidden" name="type" value="1">
+                                                <button type="submit"><i class="fa fa-home"></i></button>
                                             </form>
                                         </td>
                                     </tr>';
                                 }
                                 ?>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -105,8 +112,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <td>'. $week_array['week_end'] . '</td>                                        
                                         <td>
                                             <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
-                                                <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                                <div class="tm-status-circle cancelled"></div>
+                                                <input type="hidden" name="semaine" value="'. $semaine["semaine"] .'">    
+                                                <input type="hidden" name="type" value="0">
+                                                <button type="submit"><i class="fa fa-home"></i></button>
                                             </form>
                                         </td>
                                     </tr>';
