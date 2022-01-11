@@ -1,8 +1,15 @@
 <?php
+// Middleware
+include_once 'php/Middleware.php';
 
 // Front End Modules
 include_once 'php/navbar.php';
 include_once 'php/footer.php';
+
+// Import Classes
+include_once 'php/Users/User.php';
+
+$User = unserialize($_SESSION['user']);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +39,7 @@ include_once 'php/footer.php';
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
+                    <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
                 </div>
             </div>
             <!-- row -->

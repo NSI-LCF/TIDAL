@@ -1,4 +1,6 @@
 <?php
+// Middleware
+include_once 'php/Middleware.php';
 
 // Configuration
 include_once 'php/conf.php';

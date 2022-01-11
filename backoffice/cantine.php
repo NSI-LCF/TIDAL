@@ -1,4 +1,6 @@
 <?php
+// Middleware
+include_once 'php/Middleware.php';
 
 // Front End Modules
 include_once 'php/navbar.php';
