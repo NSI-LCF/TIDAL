@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var d = new Date();
 
         $(function() {
-            $("#start_date").datetimepicker({
+            $("#begin_date").datetimepicker({
                 format: 'y-m-d H:i',
                 startDate: '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
             });
