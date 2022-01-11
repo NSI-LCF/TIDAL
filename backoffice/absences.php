@@ -12,7 +12,8 @@ include_once 'php/footer.php';
 // Absences Modules
 include_once 'php/Absences/getAbsences.php';
 include_once 'php/Absences/postAbsences.php';
-
+include_once 'php/Users/User.php';
+$User = unserialize($_SESSION['user']);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     addAbsence($_POST["name"], $_POST["begin_date"], $_POST["end_date"]);
 }
@@ -48,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
+                     <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
                 </div>
             </div>
             <!-- row -->
@@ -68,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach (getAbsences() as $absence) {
+                                foreach (getAbsences(date("y-m-d H:i")) as $absence) {
                                     echo '<tr>
                                         <th scope="row">' . $absence["id"] . '</th>
                                         <td><b>' . $absence["name"] . '</b></td>
@@ -107,12 +108,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="form-group col">
                                             <label for="begin_date">Jour début
                                             </label>
-                                            <input id="begin_date" name="begin_date" type="text" value="21-01-01 08:30" class="form-control validate" data-large-mode="true" />
+                                            <input id="begin_date" name="begin_date" type="text" value="22-01-01 08:30" class="form-control validate" data-large-mode="true" />
                                         </div>
                                         <div class="form-group col">
                                             <label for="end_date">Jour fin
                                             </label>
-                                            <input id="end_date" name="end_date" type="text" value="21-01-01 18:30" class="form-control validate" data-large-mode="true" />
+                                            <input id="end_date" name="end_date" type="text" value="22-01-01 18:30" class="form-control validate" data-large-mode="true" />
                                         </div>
                                     </div>
                             </div>
