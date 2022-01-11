@@ -12,7 +12,8 @@ include_once 'php/footer.php';
 // Semaines Modules
 include_once 'php/Semaines/getSemaines.php';
 include_once 'php/Semaines/getFirstLastDay.php';
-
+include_once 'php/Users/User.php';
+$User = unserialize($_SESSION['user']);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
@@ -45,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
+                     <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
                 </div>
             </div>
             <!-- row -->
