@@ -28,6 +28,10 @@ class Cantine {
         return $CantineData;
     }
 
+    public function getCurrentClassesCantine() {
+        
+    }
+
     public function update($id, $classes){
         global $dbh;
 

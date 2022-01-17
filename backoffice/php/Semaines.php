@@ -9,6 +9,10 @@ class Semaines {
         return $sth->fetchAll(); 
     }
 
+    public function getCurrentSemaine() {
+        
+    }
+
     public function update($semaine,$type){
         global $dbh;
 
