@@ -15,9 +15,9 @@ $Semaines = new Semaines();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["type"] == "1") {
-        updateSemaine($_POST["semaine"], 0);
+        $Semaines->update($_POST["semaine"], 0);
     } else {
-        updateSemaine($_POST["semaine"], 1);
+        $Semaines->update($_POST["semaine"], 1);
     }
 }
 ?>
