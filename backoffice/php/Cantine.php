@@ -1,19 +1,19 @@
 <?php
 class Cantine {
-    public function get($semaine, $jour, $horaire){
+    public function get(){
         global $dbh;
 
-        $sql = "SELECT classes FROM `cantine` WHERE `semaine` = ? and `jour`=? and `horaire`=?";
+        $sql = "SELECT * FROM `cantine`";
         $sth = $dbh->prepare($sql);
-        $sth->execute([$semaine,$jour,$horaire]);
-        return $sth->fetch();   
+        $sth->execute();
+        return $sth->fetchAll();   
     }
 
-    public function update($semaine,$jour,$horaire,$classes){
+    public function update($id, $classes){
         global $dbh;
 
-        $sql = "UPDATE `cantine` SET `classes`=? where semaine = ? and jour = ? and horaire = ? ";
+        $sql = "UPDATE `cantine` SET `classes`=? WHERE id =  ? ";
         $sth = $dbh->prepare($sql);
-        $sth->execute([$classes,$semaine,$jour,$horaire]); 
+        $sth->execute([$classes, $id]); 
     }
 }

@@ -2,12 +2,21 @@
 // Middleware
 include_once 'php/Middleware.php';
 
+include_once 'php/conf.php';
+
 // Front End Modules
 include_once 'php/Components.php';
 $Components = new Components();
 
+include_once 'php/Cantine.php';
+$Cantine = new Cantine();
+
 include_once 'php/Users/User.php';
 $User = unserialize($_SESSION['user']);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $Cantine->update($_POST["id"], $_POST["classes"]);
+}
 
 ?>
 
@@ -51,12 +60,30 @@ $User = unserialize($_SESSION['user']);
                                 <tr>
                                     <th scope="col">ID.</th>
                                     <th scope="col">JOUR</th>
-                                    <th scope="col">CLASSES</th>
                                     <th scope="col">HEURE DÉBUT</th>
                                     <th scope="col">HEURE FIN</th>
+                                    <th scope="col">CLASSE</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                foreach ($Cantine->get() as $cantine) {
+                                    echo '<tr>
+                                        <th scope="row">' . $cantine["id"] . '</th>
+                                        <td><b>' . $cantine["jour"] . '</b></td>
+                                        <td>' . $cantine["horaire"] . '</td>
+                                        <td>' . $cantine["horaire"] . '</td>
+                                        <td>
+                                            <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
+                                                <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
+                                                <input type="hidden" name="id" value="'. $cantine["id"] .'"/>
+                                                <input type="text" name="classes" value="'. $cantine["classes"] .'"/>
+                                                <button type="submit" class="btn btn-secondary text-uppercase">
+                                            </form>
+                                        </td>
+                                    </tr>';
+                                }
+                                ?>
                                 <tr>
                                     <th scope="row">#1</th>
                                     <td><b>Vendredi</b></td>
