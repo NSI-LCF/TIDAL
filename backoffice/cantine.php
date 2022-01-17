@@ -3,8 +3,9 @@
 include_once 'php/Middleware.php';
 
 // Front End Modules
-include_once 'php/navbar.php';
-include_once 'php/footer.php';
+include_once 'php/Components.php';
+$Components = new Components();
+
 include_once 'php/Users/User.php';
 $User = unserialize($_SESSION['user']);
 
@@ -33,7 +34,7 @@ $User = unserialize($_SESSION['user']);
 
 <body id="reportsPage">
     <div class="" id="home">
-        <?php echo ShowNavbar('cantine'); ?>
+        <?php echo $Components->navbar('cantine'); ?>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -69,7 +70,7 @@ $User = unserialize($_SESSION['user']);
                 </div>
             </div>
         </div>
-        <?php echo ShowFooter(); ?>
+        <?php echo $Components->footer(); ?>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>

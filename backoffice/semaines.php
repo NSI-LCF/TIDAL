@@ -6,13 +6,12 @@ include_once 'php/Middleware.php';
 include_once 'php/conf.php';
 
 // Front End Modules
-include_once 'php/navbar.php';
-include_once 'php/footer.php';
+include_once 'php/Components.php';
+$Components = new Components();
 
 // Semaines Modules
-include_once 'php/Semaines/getSemaines.php';
-include_once 'php/Semaines/getFirstLastDay.php';
-include_once 'php/Semaines/updateSemaines.php';
+include_once 'php/Semaines.php';
+$Semaines = new Semaines();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["type"] == "1") {
@@ -46,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body id="reportsPage">
     <div class="" id="home">
-        <?php echo ShowNavbar('semaines'); ?>
+        <?php echo $Components->navbar('semaines'); ?>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -69,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </thead>
                             <tbody>
                             <?php
-                                foreach (getSemaine('1') as $semaine) {
-                                    $week_array = getStartAndEndDate($semaine["semaine"],date('Y'));
+                                foreach ($Semaines->get('1') as $semaine) {
+                                    $week_array = $Semaines->getStartAndEndDate($semaine["semaine"],date('Y'));
                                     echo '<tr>
                                         <th scope="row">'. $semaine["semaine"] .'</th>
                                         <td>'. $week_array['week_start'] .'</td>
@@ -104,8 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </thead>
                             <tbody>
                             <?php
-                                foreach (getSemaine('0') as $semaine) {
-                                    $week_array = getStartAndEndDate($semaine["semaine"],date('Y'));
+                                foreach ($Semaines->get('0') as $semaine) {
+                                    $week_array = $Semaines->getStartAndEndDate($semaine["semaine"],date('Y'));
                                     echo '<tr>
                                         <th scope="row">'. $semaine["semaine"] .'</th>
                                         <td>'. $week_array['week_start'] .'</td>
@@ -126,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-        <?php echo ShowFooter(); ?>
+        <?php echo $Components->footer(); ?>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>

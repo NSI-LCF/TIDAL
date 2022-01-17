@@ -6,16 +6,18 @@ include_once 'php/Middleware.php';
 include_once 'php/conf.php';
 
 // Front End Modules
-include_once 'php/navbar.php';
-include_once 'php/footer.php';
+include_once 'php/Components.php';
+$Components = new Components();
 
-// Absences Modules
-include_once 'php/Absences/getAbsences.php';
-include_once 'php/Absences/postAbsences.php';
+// Import Classes
+include_once 'php/Absences.php';
 include_once 'php/Users/User.php';
+
 $User = unserialize($_SESSION['user']);
+$Absences = new Absences();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    addAbsence($_POST["name"], $_POST["begin_date"], $_POST["end_date"]);
+    $Absences->post($_POST["name"], $_POST["begin_date"], $_POST["end_date"]);
 }
 
 ?>
@@ -45,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body id="reportsPage">
     <div class="" id="home">
-        <?php echo ShowNavbar('absences'); ?>
+        <?php echo $Components->navbar('absences'); ?>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -69,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach (getAbsences(date("y-m-d H:i")) as $absence) {
+                                foreach ($Absences->get(date("y-m-d H:i")) as $absence) {
                                     echo '<tr>
                                         <th scope="row">' . $absence["id"] . '</th>
                                         <td><b>' . $absence["name"] . '</b></td>
@@ -127,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-        <?php echo ShowFooter(); ?>
+        <?php echo $Components->footer(); ?>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
