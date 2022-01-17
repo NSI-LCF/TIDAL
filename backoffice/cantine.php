@@ -58,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID.</th>
                                     <th scope="col">JOUR</th>
                                     <th scope="col">HEURE DÉBUT</th>
                                     <th scope="col">HEURE FIN</th>
@@ -67,12 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </thead>
                             <tbody>
                             <?php
-                                foreach ($Cantine->get() as $cantine) {
+                                foreach ($Cantine->processedGet() as $cantine) {
                                     echo '<tr>
-                                        <th scope="row">' . $cantine["id"] . '</th>
                                         <td><b>' . $cantine["jour"] . '</b></td>
-                                        <td>' . $cantine["horaire"] . '</td>
-                                        <td>' . $cantine["horaire"] . '</td>
+                                        <td>' . $cantine["begin_hour"] . '</td>
+                                        <td>' . $cantine["end_hour"] . '</td>
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
@@ -84,13 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </tr>';
                                 }
                                 ?>
-                                <tr>
-                                    <th scope="row">#1</th>
-                                    <td><b>Vendredi</b></td>
-                                    <td><b>TD</b></td>
-                                    <td>2021-12-20 | 11:05</td>
-                                    <td>2021-12-20 | 12:05</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
