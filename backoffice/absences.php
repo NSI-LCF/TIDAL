@@ -17,7 +17,14 @@ $User = unserialize($_SESSION['user']);
 $Absences = new Absences();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Absences->post($_POST["name"], $_POST["begin_date"], $_POST["end_date"]);
+    if (isset($_POST["method"])) {
+        if ($_POST["method"] == "POST") {
+            $Absences->post($_POST["name"], $_POST["begin_date"], $_POST["end_date"]);
+        } elseif ($_POST["method"] == "DELETE") {
+            $Absences->delete($_POST["id"]);
+        }
+    }
+    
 }
 
 ?>
@@ -80,7 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                                <div class="tm-status-circle cancelled"></div>
+                                                <input type="hidden" name="method" value="DELETE"/>
+                                                <input type="hidden" name="id" value="'. $absence["id"] .'"/>
+                                                <button type="submit" class="btn btn-secondary text-uppercase">
                                             </form>
                                         </td>
                                     </tr>';
@@ -101,21 +110,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="row tm-edit-product-row">
                             <div class="col-xl-12 col-lg-12 col-md-12">
                                 <form action="" method="post" class="tm-edit-product-form">
+                                    <input type="hidden" name="method" value="POST"/>
                                     <div class="form-group mb-6">
                                         <label for="name">Nom
                                         </label>
-                                        <input id="name" name="name" type="text" class="form-control validate" />
+                                        <input id="name" name="name" type="text" class="form-control validate" required/>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col">
                                             <label for="begin_date">Jour début
                                             </label>
-                                            <input id="begin_date" name="begin_date" type="text" value="22-01-01 08:30" class="form-control validate" data-large-mode="true" />
+                                            <input id="begin_date" name="begin_date" type="text" value="22-01-01 08:30" class="form-control validate" data-large-mode="true" required/>
                                         </div>
                                         <div class="form-group col">
                                             <label for="end_date">Jour fin
                                             </label>
-                                            <input id="end_date" name="end_date" type="text" value="22-01-01 18:30" class="form-control validate" data-large-mode="true" />
+                                            <input id="end_date" name="end_date" type="text" value="22-01-01 18:30" class="form-control validate" data-large-mode="true" required/>
                                         </div>
                                     </div>
                             </div>
