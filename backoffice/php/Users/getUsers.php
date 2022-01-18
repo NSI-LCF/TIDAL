@@ -5,7 +5,7 @@ function getUsers(){
     $sql = "SELECT * FROM `users`";
     $sth = $dbh->prepare($sql);
     $sth->execute();
-    return $sth->fetch();    
+    return $sth->fetchAll();    
 }
 
 
