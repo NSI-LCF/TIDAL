@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
                                             <input type="hidden" name="semaine" value="'. $semaine["semaine"] .'">    
                                             <input type="hidden" name="type" value="1">
-                                                <button type="submit"><i class="fa fa-home"></i></button>
+                                            <button type="submit" class="btn btn-secondary text-uppercase"> <i class="fas fa-exchange-alt"></i> </button>
                                             </form>
                                         </td>
                                     </tr>';
@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <form action="'. htmlspecialchars($_SERVER['PHP_SELF']) .'" method="post">
                                                 <input type="hidden" name="semaine" value="'. $semaine["semaine"] .'">    
                                                 <input type="hidden" name="type" value="0">
-                                                <button type="submit"><i class="fa fa-home"></i></button>
+                                                <button type="submit" class="btn btn-secondary text-uppercase"> <i class="fas fa-exchange-alt"></i> </button>
                                             </form>
                                         </td>
                                     </tr>';

@@ -25,10 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST["method"] == "POST") {
             createUser($_POST["name"], $_POST["password"], $_POST["type"]);
         } elseif ($_POST["method"] == "DELETE") {
-            deleteUser($_POST["id"]);
+            if ($User->id != $_POST["id"]) {
+                deleteUser($_POST["id"]);
+            }
         }
     }
-    
 }
 
 ?>
@@ -62,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="row">
                 <div class="col">
-                     <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
+                    <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
                 </div>
             </div>
             <!-- row -->
@@ -91,8 +92,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
                                                 <input type="hidden" name="method" value="DELETE"/>
-                                                <input type="hidden" name="id" value="'. $user["id"] .'"/>
-                                                <button type="submit" class="btn btn-secondary text-uppercase">
+                                                <input type="hidden" name="id" value="' . $user["id"] . '"/>
+                                                <button type="submit" class="btn btn-secondary text-uppercase"> <i class="far fa-trash-alt"></i> </button>
                                             </form>
                                         </td>
                                     </tr>';
@@ -113,23 +114,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="row tm-edit-product-row">
                             <div class="col-xl-12 col-lg-12 col-md-12">
                                 <form action="" method="post" class="tm-edit-product-form">
-                                    <input type="hidden" name="method" value="POST"/>
+                                    <input type="hidden" name="method" value="POST" />
                                     <div class="form-group mb-6">
                                         <label for="name">Nom d'utilisateur
                                         </label>
-                                        <input id="name" name="name" type="text" class="form-control validate" required/>
+                                        <input id="name" name="name" type="text" class="form-control validate" required />
 
                                         <label for="password">Password
                                         </label>
-                                        <input id="password" name="password" type="password" class="form-control validate" required/>
+                                        <input id="password" name="password" type="password" class="form-control validate" required />
 
-                                        <label for="type">Type
-                                        </label>
-                                        <input id="type" name="type" type="text" class="form-control validate" required/>
-                                   ¡                                        
+                                        <label for="type">Category</label>
+                                        <select class="custom-select tm-select-accounts" id="type" name="type">
+                                            <option>Select user type</option>
+                                            <option value="0" selected>Normal user</option>
+                                            <option value="1">Administrator</option>
+                                        </select>
                                     </div>
 
-                                   
+
                             </div>
 
                             <div class="col-12">
@@ -140,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <?php echo $Components->footer(); ?>
     </div>
@@ -153,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- https://plugins.jquery.com/datetimepicker/ -->
     <script src="js/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
-    
+
 </body>
 
 </html>

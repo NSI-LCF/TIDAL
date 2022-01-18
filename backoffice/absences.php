@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
                                                 <input type="hidden" name="method" value="DELETE"/>
                                                 <input type="hidden" name="id" value="'. $absence["id"] .'"/>
-                                                <button type="submit" class="btn btn-secondary text-uppercase">
+                                                <button type="submit" class="btn btn-secondary text-uppercase"> <i class="far fa-trash-alt"></i> </button>
                                             </form>
                                         </td>
                                     </tr>';

@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
                                                 <input type="hidden" name="id" value="'. $cantine["id"] .'"/>
                                                 <input type="text" name="classes" value="'. $cantine["classes"] .'"/>
-                                                <button type="submit" class="btn btn-secondary text-uppercase">
+                                                <button type="submit" class="btn btn-secondary text-uppercase" ><i class="fas fa-check"></i></button>
                                             </form>
                                         </td>
                                     </tr>';
