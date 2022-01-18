@@ -17,7 +17,7 @@ p{
 }
 .bg {
   animation:slide 15s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, rgb(0, 0, 0) 50%, rgb(0, 168, 232) 50%);
+  background-image: linear-gradient(-60deg, rgb(0, 0, 0) 50%, rgb(38, 159, 196) 50%);
   bottom:0;
   left:-50%;
   opacity:.5;
@@ -64,6 +64,12 @@ body {
 background-color: rgba(53, 58, 59, .5);
 height: 50px;
 text-align: center;
+display: flex;
+justify-content: space-between;
+padding-right: 370px;
+}
+#logo{
+    border-radius:5px ;
 }
 
 #meteo {
@@ -73,6 +79,15 @@ height: 400px;
 text-align: center;
 }
 
+#prevision {
+    margin-right: 750px;
+    position: absolute;
+}
+
+#prevision2 {
+    margin-left: 750px;
+    top: 50px;
+}
 #cantine {
   background-color: rgba(53, 58, 59, .5);
   margin: 10px;
@@ -111,3 +126,4 @@ text-align: center;
   text-align: center;
   color: white;
 }
+
