@@ -55,27 +55,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <!-- row -->
             <div class="row tm-content-row">
-                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block">
-                        <h2 class="tm-block-title">Latest Hits</h2>
+                        <h2 class="tm-block-title">Profs absents au cours de l'année</h2>
                         <canvas id="lineChart"></canvas>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block">
-                        <h2 class="tm-block-title">Performance</h2>
+                        <h2 class="tm-block-title">Total d'absences par prof</h2>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
-                    <div class="tm-bg-primary-dark tm-block tm-block-taller">
-                        <h2 class="tm-block-title">Storage Information</h2>
-                        <div id="pieChartContainer">
-                            <canvas id="pieChart" class="chartjs-render-monitor" width="200" height="200"></canvas>
-                        </div>                        
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-overflow">
                         <h2 class="tm-block-title">Notification List</h2>
                         <div class="tm-notification-items">
@@ -212,13 +204,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             configLine,
             configBar,
             configPie,
-            lineChart;
-        barChart, pieChart;
+            lineChart,
+            barChart,
+            pieChart;
+
         // DOM is ready
         $(function () {
-            drawLineChart(); // Line Chart
-            drawBarChart(); // Bar Chart
-            drawPieChart(); // Pie Chart
+            lineChartData = {
+                labels: [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ],
+                datasets: [
+                {
+                    label: "Absences totales",
+                    data: [88, 68, 79, 57, 50, 55, 70],
+                    fill: false,
+                    borderColor: "rgb(75, 192, 192)",
+                    cubicInterpolationMode: "monotone",
+                    pointRadius: 0
+                },
+                {
+                    label: "Cette semaine",
+                    data: [33, 45, 37, 21, 55, 74, 69],
+                    fill: false,
+                    borderColor: "rgba(255,99,132,1)",
+                    cubicInterpolationMode: "monotone",
+                    pointRadius: 0
+                }]
+            },
+
+            barChartData = {
+                labels: ["M. Druesnes", "M. Alves"],
+                datasets: [
+                {
+                    label: "# of Hits",
+                    data: [100, 2],
+                    backgroundColor: [
+                    "#F7604D",
+                    "#4ED6B8",
+                    "#A8D582",
+                    "#D7D768",
+                    "#9D66CC",
+                    "#DB9C3F",
+                    "#3889FC"
+                    ],
+                    borderWidth: 0
+                }
+                ]
+            },
+
+            drawLineChart(lineChartData); // Line Chart
+            drawBarChart(barChartData); // Bar Chart
 
             $(window).resize(function () {
                 updateLineChart();
