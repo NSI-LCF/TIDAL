@@ -1,39 +1,39 @@
 <?php
-    session_start();
+session_start();
 
-    if (isset($_SESSION["user"])) {
+if (isset($_SESSION["user"])) {
+  header("Location: index.php");
+  exit;
+}
+
+// Config
+include_once 'php/conf.php';
+include_once 'php/Users/User.php';
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (!empty(trim($_POST["username"])) || !empty(trim($_POST["password"]))) {
+    $query = $dbh->prepare("SELECT id, `password` FROM users WHERE username = ?");
+    $query->execute([trim($_POST["username"])]);
+    $userdata =  $query->fetch();
+
+    if ($userdata) {
+      if (trim($userdata["password"]) == hash("sha256", trim($_POST["password"]))) {
+
+        $_SESSION["user"] = serialize(new User($userdata["id"]));
         header("Location: index.php");
-        exit;
+      } else {
+        $login_err = "Error logging.";
+      }
+    } else {
+      $login_err = "User not found";
     }
-
-    // Config
-    include_once 'php/conf.php';
-    include_once 'php/Users/User.php';
-
-    
-
-
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (!empty(trim($_POST["username"])) || !empty(trim($_POST["password"]))) {
-            $query = $dbh->prepare("SELECT id, `password` FROM users WHERE username = ?");
-            $query->execute([trim($_POST["username"])]);
-            $userdata =  $query->fetch();
-    
-            if ($userdata) {
-                if (trim($userdata["password"]) == hash("sha256", trim($_POST["password"]))) {
-        
-                    $_SESSION["user"] = serialize(new User($userdata["id"])); 
-                    header("Location: index.php");
-                } else {
-                    $login_err = "Error logging.";
-                }
-            } else {
-                $login_err = "User not found";
-            }
-        } else {
-            $login_err = "Something wasn't filled.";
-        }
-    }
+  } else {
+    $login_err = "Something wasn't filled.";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,15 +69,14 @@
           </div>
           <div class="row mt-2">
             <div class="col-12">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="tm-login-form">
+              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="tm-login-form">
                 <div class="form-group">
                   <label for="username">Username</label>
                   <input name="username" type="text" class="form-control validate" id="username" value="" required />
                 </div>
                 <div class="form-group mt-3">
                   <label for="password">Password</label>
-                  <input name="password" type="password" class="form-control validate" id="password" value=""
-                    required />
+                  <input name="password" type="password" class="form-control validate" id="password" value="" required />
                 </div>
                 <div class="form-group mt-4">
                   <button type="submit" class="btn btn-primary btn-block text-uppercase">

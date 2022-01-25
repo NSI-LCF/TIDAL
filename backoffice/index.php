@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <!-- row -->
             <div class="row tm-content-row">
-            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block">
                         <h2 class="tm-block-title">Profs absents au cours de l'année</h2>
                         <canvas id="lineChart"></canvas>
@@ -74,72 +74,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-01.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Jessica</b> and <b>6 others</b> sent you new <a href="#"
-                                            class="tm-notification-link">product updates</a>. Check new orders.</p>
+                                    <p class="mb-2"><b>Jessica</b> and <b>6 others</b> sent you new <a href="#" class="tm-notification-link">product updates</a>. Check new orders.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-02.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Oliver Too</b> and <b>6 others</b> sent you existing <a href="#"
-                                            class="tm-notification-link">product updates</a>. Read more reports.</p>
+                                    <p class="mb-2"><b>Oliver Too</b> and <b>6 others</b> sent you existing <a href="#" class="tm-notification-link">product updates</a>. Read more reports.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-03.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Victoria</b> and <b>6 others</b> sent you <a href="#"
-                                            class="tm-notification-link">order updates</a>. Read order information.</p>
+                                    <p class="mb-2"><b>Victoria</b> and <b>6 others</b> sent you <a href="#" class="tm-notification-link">order updates</a>. Read order information.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-01.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Laura Cute</b> and <b>6 others</b> sent you <a href="#"
-                                            class="tm-notification-link">product records</a>.</p>
+                                    <p class="mb-2"><b>Laura Cute</b> and <b>6 others</b> sent you <a href="#" class="tm-notification-link">product records</a>.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-02.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Samantha</b> and <b>6 others</b> sent you <a href="#"
-                                            class="tm-notification-link">order stuffs</a>.</p>
+                                    <p class="mb-2"><b>Samantha</b> and <b>6 others</b> sent you <a href="#" class="tm-notification-link">order stuffs</a>.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-03.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Sophie</b> and <b>6 others</b> sent you <a href="#"
-                                            class="tm-notification-link">product updates</a>.</p>
+                                    <p class="mb-2"><b>Sophie</b> and <b>6 others</b> sent you <a href="#" class="tm-notification-link">product updates</a>.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-01.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Lily A</b> and <b>6 others</b> sent you <a href="#"
-                                            class="tm-notification-link">product updates</a>.</p>
+                                    <p class="mb-2"><b>Lily A</b> and <b>6 others</b> sent you <a href="#" class="tm-notification-link">product updates</a>.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-02.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Amara</b> and <b>6 others</b> sent you <a href="#"
-                                            class="tm-notification-link">product updates</a>.</p>
+                                    <p class="mb-2"><b>Amara</b> and <b>6 others</b> sent you <a href="#" class="tm-notification-link">product updates</a>.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="tm-gray-circle"><img src="img/notification-03.jpg" alt="Avatar Image" class="rounded-circle"></div>
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Cinthela</b> and <b>6 others</b> sent you <a href="#"
-                                            class="tm-notification-link">product updates</a>.</p>
+                                    <p class="mb-2"><b>Cinthela</b> and <b>6 others</b> sent you <a href="#" class="tm-notification-link">product updates</a>.</p>
                                     <span class="tm-small tm-text-color-secondary">6h ago.</span>
                                 </div>
                             </div>
@@ -156,15 +147,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="row tm-edit-product-row">
                             <div class="col-xl-12 col-lg-12 col-md-12">
                                 <form action="" method="post" class="tm-edit-product-form">
-                                    <input type="hidden" name="method" value="POST"/>
+                                    <input type="hidden" name="method" value="POST" />
                                     <div class="row">
                                         <div class="form-group col-12">
                                             <label for="title">Titre
                                             </label>
-                                            <input id="title" name="title" type="text" class="form-control validate" data-large-mode="true" placeholder="<?php echo ($lastAnnonce ? htmlspecialchars($lastAnnonce['title']) : 'Titre') ?>" required/>
+                                            <input id="title" name="title" type="text" class="form-control validate" data-large-mode="true" placeholder="<?php echo ($lastAnnonce ? htmlspecialchars($lastAnnonce['title']) : 'Titre') ?>" required />
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group mb-12">
                                         <label for="annonce">Annonce
                                         </label>
@@ -209,62 +200,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             pieChart;
 
         // DOM is ready
-        $(function () {
+        $(function() {
             lineChartData = {
-                labels: [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7"
-                ],
-                datasets: [
-                {
-                    label: "Absences totales",
-                    data: [88, 68, 79, 57, 50, 55, 70],
-                    fill: false,
-                    borderColor: "rgb(75, 192, 192)",
-                    cubicInterpolationMode: "monotone",
-                    pointRadius: 0
-                },
-                {
-                    label: "Cette semaine",
-                    data: [33, 45, 37, 21, 55, 74, 69],
-                    fill: false,
-                    borderColor: "rgba(255,99,132,1)",
-                    cubicInterpolationMode: "monotone",
-                    pointRadius: 0
-                }]
-            },
-
-            barChartData = {
-                labels: ["M. Druesnes", "M. Alves"],
-                datasets: [
-                {
-                    label: "# of Hits",
-                    data: [100, 2],
-                    backgroundColor: [
-                    "#F7604D",
-                    "#4ED6B8",
-                    "#A8D582",
-                    "#D7D768",
-                    "#9D66CC",
-                    "#DB9C3F",
-                    "#3889FC"
+                    labels: [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
                     ],
-                    borderWidth: 0
-                }
-                ]
-            },
+                    datasets: [{
+                            label: "Absences totales",
+                            data: [88, 68, 79, 57, 50, 55, 70],
+                            fill: false,
+                            borderColor: "rgb(75, 192, 192)",
+                            cubicInterpolationMode: "monotone",
+                            pointRadius: 0
+                        },
+                        {
+                            label: "Cette semaine",
+                            data: [33, 45, 37, 21, 55, 74, 69],
+                            fill: false,
+                            borderColor: "rgba(255,99,132,1)",
+                            cubicInterpolationMode: "monotone",
+                            pointRadius: 0
+                        }
+                    ]
+                },
 
-            drawLineChart(lineChartData); // Line Chart
+                barChartData = {
+                    labels: ["M. Druesnes", "M. Alves"],
+                    datasets: [{
+                        label: "# of Hits",
+                        data: [100, 2],
+                        backgroundColor: [
+                            "#F7604D",
+                            "#4ED6B8",
+                            "#A8D582",
+                            "#D7D768",
+                            "#9D66CC",
+                            "#DB9C3F",
+                            "#3889FC"
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+
+                drawLineChart(lineChartData); // Line Chart
             drawBarChart(barChartData); // Bar Chart
 
-            $(window).resize(function () {
+            $(window).resize(function() {
                 updateLineChart();
-                updateBarChart();                
+                updateBarChart();
             });
         })
     </script>

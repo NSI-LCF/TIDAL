@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="row">
                 <div class="col">
-                     <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
+                    <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
                 </div>
             </div>
             <!-- row -->
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php
+                                <?php
                                 foreach ($Cantine->processedGet() as $cantine) {
                                     echo '<tr>
                                         <td><b>' . $cantine["jour"] . '</b></td>
@@ -74,8 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
-                                                <input type="hidden" name="id" value="'. $cantine["id"] .'"/>
-                                                <input type="text" name="classes" value="'. $cantine["classes"] .'"/>
+                                                <input type="hidden" name="id" value="' . $cantine["id"] . '"/>
+                                                <input type="text" name="classes" value="' . $cantine["classes"] . '"/>
                                                 <button type="submit" class="btn btn-secondary text-uppercase" ><i class="fas fa-check"></i></button>
                                             </form>
                                         </td>

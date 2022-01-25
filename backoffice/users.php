@@ -90,7 +90,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
-                                                <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
                                                 <input type="hidden" name="method" value="DELETE"/>
                                                 <input type="hidden" name="id" value="' . $user["id"] . '"/>
                                                 <button type="submit" class="btn btn-secondary text-uppercase"> <i class="far fa-trash-alt"></i> </button>
@@ -126,7 +125,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                         <label for="type">Category</label>
                                         <select class="custom-select tm-select-accounts" id="type" name="type">
-                                            <option>Select user type</option>
                                             <option value="0" selected>Normal user</option>
                                             <option value="1">Administrator</option>
                                         </select>

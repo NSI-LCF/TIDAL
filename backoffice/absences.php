@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $Absences->delete($_POST["id"]);
         }
     }
-    
 }
 
 ?>
@@ -58,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="row">
                 <div class="col">
-                     <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
+                    <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
                 </div>
             </div>
             <!-- row -->
@@ -88,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
                                                 <input type="hidden" name="method" value="DELETE"/>
-                                                <input type="hidden" name="id" value="'. $absence["id"] .'"/>
+                                                <input type="hidden" name="id" value="' . $absence["id"] . '"/>
                                                 <button type="submit" class="btn btn-secondary text-uppercase"> <i class="far fa-trash-alt"></i> </button>
                                             </form>
                                         </td>
@@ -104,28 +103,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="tm-block-title d-inline-block">Add Absence</h2>
+                                <h2 class="tm-block-title d-inline-block">Ajouter Absence</h2>
                             </div>
                         </div>
                         <div class="row tm-edit-product-row">
                             <div class="col-xl-12 col-lg-12 col-md-12">
                                 <form action="" method="post" class="tm-edit-product-form">
-                                    <input type="hidden" name="method" value="POST"/>
+                                    <input type="hidden" name="method" value="POST" />
                                     <div class="form-group mb-6">
                                         <label for="name">Nom
                                         </label>
-                                        <input id="name" name="name" type="text" class="form-control validate" required/>
+                                        <input id="name" name="name" type="text" class="form-control validate" required />
                                     </div>
                                     <div class="row">
                                         <div class="form-group col">
                                             <label for="begin_date">Jour début
                                             </label>
-                                            <input id="begin_date" name="begin_date" type="text" value="22-01-01 08:30" class="form-control validate" data-large-mode="true" required/>
+                                            <input id="begin_date" name="begin_date" type="text" value="22-01-01 08:30" class="form-control validate" data-large-mode="true" required />
                                         </div>
                                         <div class="form-group col">
                                             <label for="end_date">Jour fin
                                             </label>
-                                            <input id="end_date" name="end_date" type="text" value="22-01-01 18:30" class="form-control validate" data-large-mode="true" required/>
+                                            <input id="end_date" name="end_date" type="text" value="22-01-01 18:30" class="form-control validate" data-large-mode="true" required />
                                         </div>
                                     </div>
                             </div>
@@ -155,11 +154,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $(function() {
             $("#begin_date").datetimepicker({
+                allowTimes: [
+                    '8:30', '9:30', '10:30',
+                    '11:30', '12:30', '13:30',
+                    '14:30', '15:30', '16:30',
+                    '17:30',
+                ],
                 format: 'y-m-d H:i',
                 startDate: '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
             });
 
             $("#end_date").datetimepicker({
+                allowTimes: [
+                    '8:30', '9:30', '10:30',
+                    '11:30', '12:30', '13:30',
+                    '14:30', '15:30', '16:30',
+                    '17:30',
+                ],
                 format: 'y-m-d H:i',
                 startDate: '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
             });
