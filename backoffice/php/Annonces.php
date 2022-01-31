@@ -3,7 +3,7 @@ class Annonces {
     public function get() {
         global $dbh;
 
-        $sql = "SELECT * FROM `annonces`";
+        $sql = "SELECT * FROM `annonces` ORDER BY creation_time DESC";
         $sth = $dbh->prepare($sql);
         $sth->execute();
         return $sth->fetchAll();   
