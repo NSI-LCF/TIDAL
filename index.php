@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Projet TIDAL</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
   <style>
     
@@ -56,14 +56,14 @@ print("<pre>");
 var_dump($current);
 print("</pre>");*/
 
-
+print("<p id='prevision'>       Aujourd'hui <br/>");
 /* TEMPS MAINTENANT */
 /* TEXTE */
-$texte=$meteo_xml->current->condition->text;
-print("<p id='prevision'>$texte");
+/*$texte=$meteo_xml->current->condition->text;
+print("$texte");
 /* ICONE METEO */
 $icone=$meteo_xml->current->condition->icon;
-print("<img class='icone_meteo' src='$icone' alt='logo' />");
+print("<img class='icone_meteo' src='$icone' alt='logo' /><br/>");
 /* TEMPERATURE */
 $temperature=$meteo_xml->current->temp_c;
 print("Moyenne: $temperature ºC</p>");
@@ -77,13 +77,15 @@ print("<pre>");
 print("</pre>");
 
 /* JOUR 1 */
+print("<p id='prevision2'>Demain <br/>");
 /* TEXTE*/
-$texte1=$forecast_xml->forecast->forecastday->day->condition->text;
+/*$texte1=$forecast_xml->forecast->forecastday->day->condition->text;
 print("<p id='prevision2'>$texte1");
-
+*/
 /* ICONE METEO */
+
 $icone1=$forecast_xml->forecast->forecastday->day->condition->icon;
-print("<img class='icone_meteo' src='$icone1' alt='logo' />");
+print("<img class='icone_meteo' src='$icone1' alt='logo'> <br/>");
 
 
 /* MIN TEMP */
