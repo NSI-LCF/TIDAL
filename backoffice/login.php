@@ -2,35 +2,25 @@
 session_start();
 
 if (isset($_SESSION["user"])) {
-  header("Location: index.php");
-  exit;
+    header("Location: index.php");
+    exit;
 }
 
 // Config
 include_once 'php/conf.php';
-include_once 'php/User.php';
 
+include_once 'php/User.php';
+$User = new User();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (!empty(trim($_POST["username"])) || !empty(trim($_POST["password"]))) {
-    $query = $dbh->prepare("SELECT id, `password` FROM users WHERE username = ?");
-    $query->execute([trim($_POST["username"])]);
-    $userdata =  $query->fetch();
+    $UserData = $User->get($_POST["username"], $_POST["password"]);
 
-    if ($userdata) {
-      if (trim($userdata["password"]) == hash("sha256", trim($_POST["password"]))) {
-
-        $_SESSION["user"] = serialize(new User($userdata["id"]));
+    if (!isset($UserData->error)) {
+        $_SESSION["user"] = serialize($UserData);
         header("Location: index.php");
-      } else {
-        $login_err = "Error logging.";
-      }
     } else {
-      $login_err = "User not found";
+      print ($UserData->error);
     }
-  } else {
-    $login_err = "Something wasn't filled.";
-  }
 }
 ?>
 
