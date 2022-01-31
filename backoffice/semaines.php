@@ -1,5 +1,6 @@
 <?php
 // Middleware
+include_once 'php/User.php';
 include_once 'php/Middleware.php';
 
 // Configuration
@@ -71,12 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 foreach ($Semaines->get('1') as $semaine) {
                                     $week_array = $Semaines->getStartAndEndDate($semaine["semaine"], date('Y'));
                                     echo '<tr>
-                                        <th scope="row">' . $semaine["semaine"] . '</th>
-                                        <td>' . $week_array['week_start'] . '</td>
-                                        <td>' . $week_array['week_end'] . '</td>                                          
+                                        <th scope="row">' . htmlspecialchars($semaine["semaine"]) . '</th>
+                                        <td>' . htmlspecialchars($week_array['week_start']) . '</td>
+                                        <td>' . htmlspecialchars($week_array['week_end']) . '</td>                                          
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
-                                            <input type="hidden" name="semaine" value="' . $semaine["semaine"] . '">    
+                                            <input type="hidden" name="semaine" value="' . htmlspecialchars($semaine["semaine"]) . '">    
                                             <input type="hidden" name="type" value="1">
                                             <button type="submit" class="btn btn-secondary text-uppercase"> <i class="fas fa-exchange-alt"></i> </button>
                                             </form>
@@ -106,12 +107,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 foreach ($Semaines->get('0') as $semaine) {
                                     $week_array = $Semaines->getStartAndEndDate($semaine["semaine"], date('Y'));
                                     echo '<tr>
-                                        <th scope="row">' . $semaine["semaine"] . '</th>
-                                        <td>' . $week_array['week_start'] . '</td>
-                                        <td>' . $week_array['week_end'] . '</td>                                        
+                                        <th scope="row">' . htmlspecialchars($semaine["semaine"]) . '</th>
+                                        <td>' . htmlspecialchars($week_array['week_start']) . '</td>
+                                        <td>' . htmlspecialchars($week_array['week_end']) . '</td>                                        
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
-                                                <input type="hidden" name="semaine" value="' . $semaine["semaine"] . '">    
+                                                <input type="hidden" name="semaine" value="' . htmlspecialchars($semaine["semaine"]) . '">    
                                                 <input type="hidden" name="type" value="0">
                                                 <button type="submit" class="btn btn-secondary text-uppercase"> <i class="fas fa-exchange-alt"></i> </button>
                                             </form>

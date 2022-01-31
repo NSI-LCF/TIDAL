@@ -1,5 +1,6 @@
 <?php
 // Middleware
+include_once 'php/User.php';
 include_once 'php/Middleware.php';
 
 include_once 'php/conf.php';
@@ -65,14 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <?php
                                 foreach ($Cantine->processedGet() as $cantine) {
                                     echo '<tr>
-                                        <td><b>' . $cantine["jour"] . '</b></td>
-                                        <td>' . $cantine["begin_hour"] . '</td>
-                                        <td>' . $cantine["end_hour"] . '</td>
+                                        <td><b>' . htmlspecialchars($cantine["jour"]) . '</b></td>
+                                        <td>' . htmlspecialchars($cantine["begin_hour"]) . '</td>
+                                        <td>' . htmlspecialchars($cantine["end_hour"]) . '</td>
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
                                                 <input type="hidden" name="id" value="' . $cantine["id"] . '"/>
-                                                <input type="text" name="classes" value="' . $cantine["classes"] . '"/>
+                                                <input type="text" name="classes" value="' . htmlspecialchars($cantine["classes"]) . '"/>
                                                 <button type="submit" class="btn btn-secondary text-uppercase" ><i class="fas fa-check"></i></button>
                                             </form>
                                         </td>

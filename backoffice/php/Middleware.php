@@ -6,8 +6,6 @@ if (!isset($_SESSION["user"])) {
     exit;
 } else {
     if (isset($AdminRequired) && ($AdminRequired == true)) {
-        include_once 'php/User.php';
-
         $User = unserialize($_SESSION['user']);
         if ($User->type != 1) {
             header("Location: index.php");

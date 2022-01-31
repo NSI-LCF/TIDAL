@@ -1,5 +1,6 @@
 <?php
 // Middleware
+include_once 'php/User.php';
 include_once 'php/Middleware.php';
 
 // Configuration
@@ -77,9 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 foreach ($Absences->get(date("y-m-d H:i")) as $absence) {
                                     echo '<tr>
                                         <th scope="row">' . $absence["id"] . '</th>
-                                        <td><b>' . $absence["name"] . '</b></td>
-                                        <td>' . $absence["begin_date"] . '</td>
-                                        <td>' . $absence["end_date"] . '</td>
+                                        <td><b>' . htmlspecialchars($absence["name"]) . '</b></td>
+                                        <td>' . htmlspecialchars($absence["begin_date"]) . '</td>
+                                        <td>' . htmlspecialchars($absence["end_date"]) . '</td>
                                         <td>
                                             <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
                                                 <!-- <input type="submit" class="tm-status-circle cancelled"> TODO -->
