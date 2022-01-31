@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- row -->
             <div class="row tm-content-row">
                 <div class="col-12 tm-block-col">
-                    <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
+                    <div class="tm-bg-primary-dark tm-block tm-block tm-block-h-auto">
                         <h2 class="tm-block-title">Passages Cantine</h2>
                         <table class="table">
                             <thead>
