@@ -3,7 +3,7 @@ class Annonces {
     public function get() {
         global $dbh;
 
-        $sql = "SELECT * FROM `annonces` ORDER BY creation_time DESC";
+        $sql = "SELECT * FROM `annonces` ORDER BY creation_time DESC LIMIT 10";
         $sth = $dbh->prepare($sql);
         $sth->execute();
         return $sth->fetchAll();   
