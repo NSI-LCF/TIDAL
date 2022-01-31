@@ -11,9 +11,6 @@ $Components = new Components();
 
 // Import Classes
 include_once 'php/Absences.php';
-include_once 'php/Users/User.php';
-
-$User = unserialize($_SESSION['user']);
 $Absences = new Absences();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <p class="text-white mt-5 mb-5">Welcome back, <b><?php echo $User->username ?></b></p>
+                    <p class="text-white mt-5 mb-5"></p>
                 </div>
             </div>
             <!-- row -->

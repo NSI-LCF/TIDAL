@@ -9,7 +9,7 @@ include_once 'php/Components.php';
 $Components = new Components();
 
 // Import Classes
-include_once 'php/Users/User.php';
+include_once 'php/User.php';
 $User = unserialize($_SESSION['user']);
 
 include_once 'php/Annonces.php';

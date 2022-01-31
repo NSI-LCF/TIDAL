@@ -11,22 +11,20 @@ include_once 'php/Components.php';
 $Components = new Components();
 
 // Import Classes
-include_once 'php/Absences.php';
-include_once 'php/Users/User.php';
-include_once 'php/Users/getUsers.php';
-include_once 'php/Users/deleteUser.php';
-include_once 'php/Users/postUser.php';
+include_once 'php/User.php';
+include_once 'php/UserManagement.php';
 
 $User = unserialize($_SESSION['user']);
+$UserManagement = new UserManagement();
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["method"])) {
         if ($_POST["method"] == "POST") {
-            createUser($_POST["name"], $_POST["password"], $_POST["type"]);
+            $UserManagement->post($_POST["name"], $_POST["password"], $_POST["type"]);
         } elseif ($_POST["method"] == "DELETE") {
             if ($User->id != $_POST["id"]) {
-                deleteUser($_POST["id"]);
+                $UserManagement->delete($_POST["id"]);
             }
         }
     }
@@ -82,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach (getUsers() as $user) {
+                                foreach ($UserManagement->get() as $user) {
                                     echo '<tr>
                                         <th scope="row">' . $user["id"] . '</th>
                                         <td><b>' . $user["username"] . '</b></td>

@@ -8,9 +8,7 @@ if (isset($_SESSION["user"])) {
 
 // Config
 include_once 'php/conf.php';
-include_once 'php/Users/User.php';
-
-
+include_once 'php/User.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

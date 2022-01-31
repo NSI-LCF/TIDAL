@@ -6,7 +6,7 @@ if (!isset($_SESSION["user"])) {
     exit;
 } else {
     if (isset($AdminRequired) && ($AdminRequired == true)) {
-        include_once 'php/Users/User.php';
+        include_once 'php/User.php';
 
         $User = unserialize($_SESSION['user']);
         if ($User->type != 1) {
