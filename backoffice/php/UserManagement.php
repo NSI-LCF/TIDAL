@@ -13,7 +13,7 @@ class UserManagement {
     public function post($username, $password, $type) {
         global $dbh;
 
-        $sql = "INSERT INTO users (username, 'password', 'type') VALUES (?,?,?)";
+        $sql = "INSERT INTO users (username, `password`, `type`) VALUES (?,?,?)";
         $sth = $dbh->prepare($sql);
         $sth->execute([$username, hash("sha256", $password), $type]);
     }

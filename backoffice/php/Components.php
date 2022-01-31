@@ -54,7 +54,7 @@ class Components
                             </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="users.php">Users</a>
+                        ' . (unserialize($_SESSION['user'])->type == 1 ? '<a class="dropdown-item" href="users.php">Users</a> ' : '') . '
                             <a class="dropdown-item" href="logout.php">Logout</a>
                         </div>
                     </li>
