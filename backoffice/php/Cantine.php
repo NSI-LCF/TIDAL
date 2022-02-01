@@ -18,8 +18,8 @@ class Cantine {
             $cantine["jour"] = $days[$cantine["jour"] - 1];
 
             // Heures
-            $heures = ['11h30', '12h30', '13h30', '14h30'];
-            $cantine["begin_hour"] = $heures[$cantine["horaire"] - 1];
+            $heures = ['12h30', '13h00', '13h30','14h00','14h30'];
+            $cantine["begin_hour"] = $heures[$cantine["horaire"] -1];
             $cantine["end_hour"] = $heures[$cantine["horaire"]];
 
             $CantineData[$key] = $cantine;
@@ -29,7 +29,7 @@ class Cantine {
     }
 
     public function getCurrentClassesCantine() {
-        
+        //a faire
     }
 
     public function update($id, $classes){
