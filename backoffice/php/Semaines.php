@@ -9,16 +9,25 @@ class Semaines {
         return $sth->fetchAll(); 
     }
 
-    public function getCurrentSemaine() {
-        
-    }
-
     public function update($semaine,$type){
         global $dbh;
 
         $sql = "UPDATE `semaines` SET `type`=? where semaine = ? ";
         $sth = $dbh->prepare($sql);
         $sth->execute([$type,$semaine]);
+    }
+
+    public function getCurrentSemaine() {
+        global $dbh;
+
+        $date = new DateTime();
+        $weekNumber = round($date->format("W"));
+        $schoolWeeks = $this->getSchoolWeeks();
+        // $currentWeek = 1
+
+        // foreach ($schoolWeeks as $week) {
+
+        // }
     }
 
     public function getStartAndEndDate($week, $year) {
@@ -28,5 +37,15 @@ class Semaines {
         $dto->modify('+6 days');
         $ret['week_end'] = $dto->format('Y-m-d');
         return $ret;
+    }
+    
+    function getSchoolWeeks() {
+        global $dbh;
+
+        $sql = "SELECT * FROM `semaines` WHERE `type` = 0";
+        $sth = $dbh->prepare($sql);
+        $sth->execute();
+
+        return $sth->fetchAll();
     }
 }
