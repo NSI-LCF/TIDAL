@@ -3,10 +3,10 @@ class Absences {
     public function get($date = null) { //Affiche les prof absents ou tout l'historiel des prof absents
         global $dbh;
 
-        if (isset($date)) {
-            $sql = "SELECT * FROM `absences` WHERE `end_date` > ? ";
-        } else {
+        if (!isset($date)) {
             $sql = "SELECT * FROM `absences`";
+        } else {
+            $sql = "SELECT * FROM `absences` WHERE `end_date` > ? ";
         }
         
         $sth = $dbh->prepare($sql);

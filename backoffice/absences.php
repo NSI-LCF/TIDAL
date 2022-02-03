@@ -149,29 +149,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- https://getbootstrap.com/ -->
     <script>
         var d = new Date();
+        var allowedTimes = ['8:30', '9:30', '10:30', '11:30', '12:30', '13:30', '14:30', '15:30', '16:30', '17:30']
+        var dateFormat = 'y-m-d H:i'
+        var startDate = '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
+        var currDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
 
         $(function() {
+            $("#begin_date").val(currDate + ' 8:30'),
+            $("#end_date").val(currDate + ' 18:30'),
+
+
             $("#begin_date").datetimepicker({
-                allowTimes: [
-                    '8:30', '9:30', '10:30',
-                    '11:30', '12:30', '13:30',
-                    '14:30', '15:30', '16:30',
-                    '17:30',
-                ],
-                format: 'y-m-d H:i',
-                startDate: '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
+                allowTimes: allowedTimes,
+                format: dateFormat,
+                startDate: currDate
             });
 
             $("#end_date").datetimepicker({
-                allowTimes: [
-                    '8:30', '9:30', '10:30',
-                    '11:30', '12:30', '13:30',
-                    '14:30', '15:30', '16:30',
-                    '17:30',
-                ],
-                format: 'y-m-d H:i',
-                startDate: '+' + d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
+                allowTimes: allowedTimes,
+                format: dateFormat,
+                startDate: currDate,
+                
             });
+
+            
         });
     </script>
 </body>

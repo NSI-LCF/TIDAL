@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="tm-block-title d-inline-block">Add Annoce</h2>
+                                <h2 class="tm-block-title d-inline-block">Add Annonce</h2>
                             </div>
                         </div>
                         <div class="row tm-edit-product-row">

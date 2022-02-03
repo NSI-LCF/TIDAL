@@ -35,7 +35,7 @@ class Cantine {
     public function update($id, $classes){
         global $dbh;
 
-        $sql = "UPDATE `cantine` SET `classes`=? WHERE id =  ? ";
+        $sql = "UPDATE `cantine` SET `classes`= ? WHERE id = ? ";
         $sth = $dbh->prepare($sql);
         $sth->execute([$classes, $id]); 
     }
