@@ -29,9 +29,10 @@ $Annonces = new Annonces();
 
 $LastAnnonce = $Annonces->getLast();
 
+
 $data["semaine"] = $Semaines->getCurrentSemaine();
-$data["pass-cantine"] = "TC-TD";
-$data["profs-abs"] = ["M. Jany", "M. Dauch", "M. Druesnes"];
+$data["pass-cantine"] = $Cantine->processedGet();
+$data["profs-abs"] = $Absences->getProfs();
 $data["annonce"]["titre"] = $LastAnnonce["title"];
 $data["annonce"]["annonce"] = $LastAnnonce["annonce"];
 
