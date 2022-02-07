@@ -23,11 +23,21 @@ class Semaines {
         $date = new DateTime();
         $weekNumber = round($date->format("W"));
         $schoolWeeks = $this->getSchoolWeeks();
-        // $currentWeek = 1
+        $weekData = [];
+        $currentWeek = true;
 
-        // foreach ($schoolWeeks as $week) {
+        foreach ($schoolWeeks as $week) {
+            $weekData[$week["semaine"]] = $currentWeek;
+            $currentWeek = !$currentWeek;
+        }
 
-        // }
+        if ($weekData[$weekNumber] == true) {
+            return "A";
+        } else {
+            return "B";
+        }
+
+        
     }
 
     public function getStartAndEndDate($week, $year) {
