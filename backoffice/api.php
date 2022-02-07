@@ -28,10 +28,10 @@ $Absences = new Absences();
 $Annonces = new Annonces();
 
 $LastAnnonce = $Annonces->getLast();
+$CurrentWeek = $Semaines->getCurrentSemaine();
 
-
-$data["semaine"] = $Semaines->getCurrentSemaine();
-$data["pass-cantine"] = $Cantine->processedGet();
+$data["semaine"] = $CurrentWeek;
+$data["pass-cantine"] = $Cantine->getCurrentClassesCantine($CurrentWeek);
 $data["profs-abs"] = $Absences->getProfs();
 $data["annonce"]["titre"] = $LastAnnonce["title"];
 $data["annonce"]["annonce"] = $LastAnnonce["annonce"];
