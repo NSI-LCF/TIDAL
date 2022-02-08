@@ -40,7 +40,7 @@
   <div class="bg"></div>
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
-  <div class="boite" id="date"><img id="logo" src="images/lcf.jpg"><p id="heure" ></p> <p>Semaine : </p><?php print(".$data['semaine']."); ?></div>
+  <div class="boite" id="date"><img id="logo" src="images/lcf.jpg"><p id="heure"></p> </div>
   <div class="boite" id="meteo"><p>Météo</p><?php
 
 
@@ -106,22 +106,56 @@ print("Moyenne: $avg_temp ºC</p>");
 
 //var_dump($forecast_xml->forecast->forecastday->day);
 
-include_once("./backoffice/api.php");
 
 ?></div>
   <div class="boite" id="cantine"><p>Cantine</p><img src="images/template.jpg"></div>
   <div class="boite flex" id="profsabs"><p>Professeurs Absent</p>
-  <table>
+  
   <?php
     $datalist = file_get_contents('http://localhost/tidal/backoffice/api.php');
     $apiData = json_decode($datalist, true);
     $apiData2 = $apiData["profs-abs"];
-    $apiDataTest = ["M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany"];
-    foreach ($apiDataTest as $data3){
-        echo "<tr> $data3 </tr>";
+    //$apiData2 = ["M.Jany","M.toto","M.tutu","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany"];
+    
+    for ($i=1;$i<7;$i++)
+
+    {
+        for ($j=1;$j<5;$j++)
+        {
+            $prof[$i][$j]=" "; 
+        }
+    }
+    $i=0;
+    $j=1;
+    foreach ($apiData2 as $prof1)
+    {   $i++;
+        if ($i>6)
+        {
+        $i=1;
+        $j++;
+        }
+        $prof[$i][$j]=$prof1;
+    }
+    //var_dump($prof);
+    //error_reporting( E_WARNING );
+    echo "<table>";
+    echo "<tr><td>".$prof[1][1]."</td><td>".$prof[1][2]."</td><td>".$prof[1][3]."</td><td>".$prof[1][4]."</td></tr>";
+    echo "<tr><td>".$prof[2][1]."</td><td>".$prof[2][2]."</td><td>".$prof[2][3]."</td><td>".$prof[2][4]."</td></tr>";
+    echo "<tr><td>".$prof[3][1]."</td><td>".$prof[3][2]."</td><td>".$prof[2][3]."</td><td>".$prof[3][4]."</td></tr>";
+    echo "<tr><td>".$prof[4][1]."</td><td>".$prof[4][2]."</td><td>".$prof[2][3]."</td><td>".$prof[4][4]."</td></tr>";
+    echo "<tr><td>".$prof[5][1]."</td><td>".$prof[5][2]."</td><td>".$prof[2][3]."</td><td>".$prof[5][4]."</td></tr>";
+    echo "<tr><td>".$prof[6][1]."</td><td>".$prof[6][2]."</td><td>".$prof[2][3]."</td><td>".$prof[6][4]."</td></tr>";
+    echo "</table>";
+    /*
+    foreach ($apiData2 as $data3)
+    {
+        $i++;
+        echo "<tr><td> $data3</td> </tr>";
     };
+    echo "<table>";
+    */
     ?>
-  </table>
+  
 </div>
   <div class="boite" id="info"><p>Informations Administratives</p></div>
   <div class="boite" id="data2"><p>News</p></div>
@@ -131,7 +165,7 @@ include_once("./backoffice/api.php");
 $flux=new SimpleXMLElement(file_get_contents("https://www.france24.com/fr/europe/rss"));
 
 $last_update=$flux->channel->lastBuildDate;
-print("Source France 24 le :$last_update");
+//print("Source France 24 le :$last_update");
 print("");
 $informations=[];
 $numero_information=0;
