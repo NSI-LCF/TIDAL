@@ -108,7 +108,19 @@ print("Moyenne: $avg_temp ºC</p>");
 
 ?></div>
   <div class="boite" id="cantine"><p>Cantine</p><img src="images/template.jpg"></div>
-  <div class="boite" id="profsabs"><p>Professeurs Absent</p></div>
+  <div class="boite flex" id="profsabs"><p>Professeurs Absent</p>
+  <table>
+  <?php
+    $datalist = file_get_contents('http://localhost/tidal/backoffice/api.php');
+    $apiData = json_decode($datalist, true);
+    $apiData2 = $apiData["profs-abs"];
+    $apiDataTest = ["M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany"];
+    foreach ($apiDataTest as $data3){
+        echo "<tr> $data3 </tr>";
+    };
+    ?>
+  </table>
+</div>
   <div class="boite" id="info"><p>Informations Administratives</p></div>
   <div class="boite" id="data2"><p>News</p></div>
   <div class="boite" id="vacances"><p>Décompte Des Vacances</p></div>
