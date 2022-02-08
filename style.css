@@ -60,6 +60,12 @@ body {
   border-radius: 5px;
 }
 
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+};
+
+
 #date {
 background-color: rgba(53, 58, 59, .5);
 height: 50px;
