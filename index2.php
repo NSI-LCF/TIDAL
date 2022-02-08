@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -37,6 +37,8 @@
 </style>
 </head>
 <body>
+<img src="https://app.mobilitat.ad/gifs/Arcalis.gif" />
+
   <div class="bg"></div>
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
@@ -56,14 +58,14 @@ print("<pre>");
 var_dump($current);
 print("</pre>");*/
 
-
+print("<p id='prevision'>       Aujourd'hui <br/>");
 /* TEMPS MAINTENANT */
 /* TEXTE */
-$texte=$meteo_xml->current->condition->text;
-print("<p id='prevision'>$texte");
+/*$texte=$meteo_xml->current->condition->text;
+print("$texte");
 /* ICONE METEO */
 $icone=$meteo_xml->current->condition->icon;
-print("<img class='icone_meteo' src='$icone' alt='logo' />");
+print("<img class='icone_meteo' src='$icone' alt='logo' /><br/>");
 /* TEMPERATURE */
 $temperature=$meteo_xml->current->temp_c;
 print("Moyenne: $temperature ºC</p>");
@@ -77,13 +79,15 @@ print("<pre>");
 print("</pre>");
 
 /* JOUR 1 */
+print("<p id='prevision2'>Demain <br/>");
 /* TEXTE*/
-$texte1=$forecast_xml->forecast->forecastday->day->condition->text;
+/*$texte1=$forecast_xml->forecast->forecastday->day->condition->text;
 print("<p id='prevision2'>$texte1");
-
+*/
 /* ICONE METEO */
+
 $icone1=$forecast_xml->forecast->forecastday->day->condition->icon;
-print("<img class='icone_meteo' src='$icone1' alt='logo' />");
+print("<img class='icone_meteo' src='$icone1' alt='logo'> <br/>");
 
 
 /* MIN TEMP */
@@ -205,5 +209,7 @@ function pageScroll()
 }
 scrolldelay = setInterval(pageScroll,10000);
 </script>
+<img style="width: 10%;height:10%;" src="https://app.mobilitat.ad/gifs/Arcalis.gif?t=20220131110311" data-actual="https://app.mobilitat.ad/gifs/Arcalis.gif?t=20220131110311" class="img-fluid" onerror="this.onerror=null;this.src='https:\\/\\/www.mobilitat.ad/images/offline.gif';" title="CG3 / PK 20+670 (Arcalís Sud) / 1.900 metres">
+
 </body>
 </html>
