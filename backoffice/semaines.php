@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $Semaines->update($_POST["semaine"], 1);
     }
+
+    header("Location: ". $_SERVER['PHP_SELF']);
 }
 ?>
 

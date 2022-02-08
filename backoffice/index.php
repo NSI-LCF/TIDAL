@@ -21,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Annonces->post($_POST["title"], $_POST["annonce"]);
     $lastAnnonce["title"] = $_POST["title"];
     $lastAnnonce["annonce"] = $_POST["annonce"];
+    
+    header("Location: ". $_SERVER['PHP_SELF']);
 }
 ?>
 

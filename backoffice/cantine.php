@@ -14,6 +14,8 @@ $Cantine = new Cantine();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Cantine->update($_POST["id"], $_POST["classes"]);
+    
+    header("Location: ". $_SERVER['PHP_SELF']);
 }
 
 ?>
