@@ -36,4 +36,4 @@ $data["profs-abs"] = $Absences->getProfs();
 $data["annonce"]["titre"] = $LastAnnonce["title"];
 $data["annonce"]["annonce"] = $LastAnnonce["annonce"];
 
-echo json_encode($data);
+echo json_encode($data, JSON_UNESCAPED_UNICODE);
