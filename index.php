@@ -40,8 +40,10 @@
   <div class="bg"></div>
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
-  <div class="boite" id="date"><img id="logo" src="images/lcf.jpg"><p id="heure" >Date / Heure / Semaine</p></div>
+  <div class="boite" id="date"><img id="logo" src="images/lcf.jpg"><p id="heure" ></p> <p>Semaine : </p><?php print(".$data['semaine']."); ?></div>
   <div class="boite" id="meteo"><p>Météo</p><?php
+
+
 /* 42.505636,1.515349
 6215b21fb6ed42d8980160421210212
 */
@@ -104,7 +106,7 @@ print("Moyenne: $avg_temp ºC</p>");
 
 //var_dump($forecast_xml->forecast->forecastday->day);
 
-
+include_once("./backoffice/api.php");
 
 ?></div>
   <div class="boite" id="cantine"><p>Cantine</p><img src="images/template.jpg"></div>

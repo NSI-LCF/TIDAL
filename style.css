@@ -91,7 +91,6 @@ text-align: center;
 }
 
 #prevision2 {
-    padding: ;
     width: 155%;
     position: absolute;
 }
@@ -134,3 +133,7 @@ text-align: center;
   color: white;
 }
 
+.img-fluid{
+  height:10%;
+  width:10px;
+}
