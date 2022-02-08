@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $Absences->delete($_POST["id"]);
         }
     }
+
+    header("Location: ". $_SERVER['PHP_SELF']);
 }
 
 ?>
