@@ -39,15 +39,18 @@ class Cantine {
         $sth = $dbh->prepare($sql);
         $sth->execute([$weekType, $dayNumber]);
         $cantineData = $sth->fetchAll();
-        $currentTime = 'Hors';
 
-        // foreach ($cantineData as $horaire) {
-        //     if (strtotime($this->getHeureHoraire($horaire["horaire"])) <= strtotime($currentTime)) {
-        //         $currentTime = $this->getHeureHoraire($horaire["horaire"]);
-        //     }
-        // }
+        foreach ($cantineData as $horaire) {
+            if (strtotime($currentTime) < strtotime('12:30') || strtotime($currentTime) > strtotime('14:30')) {
+                $classe = 'Hors Horaire';
+            } else {
+                if (strtotime($currentTime) >= strtotime($currentTime)) {
+                    $classe = $horaire["classes"];
+                }
+            }
+        }
 
-        // return $currentTime;
+        return $classe;
     }
 
     public function getHeureHoraire($horaire) {
