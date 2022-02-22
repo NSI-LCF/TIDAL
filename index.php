@@ -159,7 +159,24 @@ print("Moyenne: $avg_temp ºC</p>");
 </div>
   <div class="boite" id="info"><p>Informations Administratives</p></div>
   <div class="boite" id="data2"><p>News</p></div>
-  <div class="boite" id="vacances"><p>Décompte Des Vacances</p></div>
+  <div class="boite" id="vacances"><p> Webcams</p>
+  <table>
+        <tr>
+            <td>
+                <iframe name="webcams" width="250px" height="140px" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="http://webtv.feratel.com/webtv/?design=v3&amp;pg=40354CFF-57D1-4271-9EE2-08A745983EDD&amp;cam=15060"></iframe>
+            </td>
+            <td>
+                <iframe name="webcams" width="250px" height="140px" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="http://webtv.feratel.com/webtv/?design=v3&amp;pg=40354CFF-57D1-4271-9EE2-08A745983EDD&amp;cam=15040"></iframe>
+            </td>
+            <td>
+                <iframe name="webcams" width="250px" height="140px" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="http://webtv.feratel.com/webtv/?design=v3&amp;pg=40354CFF-57D1-4271-9EE2-08A745983EDD&amp;cam=15031"></iframe>
+            </td>
+            <td>
+                <img alt="WebCam over Andorra la Vella &amp; Escaldes Engordany" loop="0" src="http://el-viking.com/webcam/Andorra.jpg" width="250px" height="140px">
+            </td>
+        </tr>
+    </table>
+  </div>
 
 <?php
 $flux=new SimpleXMLElement(file_get_contents("https://www.france24.com/fr/europe/rss"));
