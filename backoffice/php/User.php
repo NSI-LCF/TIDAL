@@ -40,6 +40,7 @@ class User {
         $this->id = $id;
         $this->username = $rows['username'];
         $this->type = $rows['type'];
+        $this->login_time = time();
 
         return $this;
     }

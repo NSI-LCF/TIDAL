@@ -1,9 +1,11 @@
 <?php
+
+// Configuration
+include_once 'php/conf.php';
+
 // Middleware
 include_once 'php/User.php';
 include_once 'php/Middleware.php';
-
-include_once 'php/conf.php';
 
 // Front End Modules
 include_once 'php/Components.php';

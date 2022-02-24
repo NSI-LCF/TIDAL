@@ -1,11 +1,13 @@
 <?php
 // Middleware
 $AdminRequired = true;
-include_once 'php/User.php';
-include_once 'php/Middleware.php';
 
 // Configuration
 include_once 'php/conf.php';
+
+// Middleware
+include_once 'php/User.php';
+include_once 'php/Middleware.php';
 
 // Front End Modules
 include_once 'php/Components.php';
