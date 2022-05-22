@@ -114,9 +114,7 @@ print("Moyenne: $avg_temp ºC</p>");
   <?php
     $datalist = file_get_contents('http://localhost/tidal/backoffice/api.php');
     $apiData = json_decode($datalist, true);
-    $apiData2 = $apiData["profs-abs"];
-    //$apiData2 = ["M.Jany","M.toto","M.tutu","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany","M.Jany"];
-    
+    $apiData2 = $apiData["profs-abs"];    
     for ($i=1;$i<7;$i++)
 
     {

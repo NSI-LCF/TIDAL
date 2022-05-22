@@ -29,10 +29,12 @@ $Annonces = new Annonces();
 
 $LastAnnonce = $Annonces->getLast();
 $CurrentWeek = $Semaines->getCurrentSemaine();
+$Last3Annonces = $Annonces->getLast3();
 
 $data["semaine"] = $CurrentWeek;
-$data["pass-cantine"] = $Cantine->getCurrentClassesCantine($CurrentWeek);
+//$data["pass-cantine"] = $Cantine->getCurrentClassesCantine($CurrentWeek);
 $data["profs-abs"] = $Absences->getProfs();
+$data["annonceBis"] = $Last3Annonces;
 $data["annonce"]["titre"] = $LastAnnonce["title"];
 $data["annonce"]["annonce"] = $LastAnnonce["annonce"];
 

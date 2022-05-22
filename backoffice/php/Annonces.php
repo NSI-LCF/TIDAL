@@ -17,6 +17,14 @@ class Annonces {
         $sth->execute();
         return $sth->fetch();
     }
+    public function getLast3() {
+        global $dbh;
+
+        $sql = "SELECT * FROM `annonces` ORDER BY creation_time DESC LIMIT 3";
+        $sth = $dbh->prepare($sql);
+        $sth->execute();
+        return $sth->fetchAll();
+    }
 
     public function post($title, $annonce) {
         global $dbh;
@@ -26,7 +34,7 @@ class Annonces {
         $sth->execute([$title,$annonce]);
     }
 
-    public function delete($id) { // Enleve prof de la table absences
+    public function delete($id) { 
         global $dbh;
 
         $sql = "DELETE FROM `annonces` WHERE id = ?";
