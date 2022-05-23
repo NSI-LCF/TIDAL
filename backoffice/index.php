@@ -20,12 +20,19 @@ $Annonces = new Annonces();
 $lastAnnonce = $Annonces->getLast();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Annonces->post($_POST["title"], $_POST["annonce"]);
-    $lastAnnonce["title"] = $_POST["title"];
-    $lastAnnonce["annonce"] = $_POST["annonce"];
-    
+    if (isset($_POST["method"])) {
+        if ($_POST["method"] == "POST") {
+            $Annonces->post($_POST["title"], $_POST["annonce"]);
+            $lastAnnonce["title"] = $_POST["title"];
+            $lastAnnonce["annonce"] = $_POST["annonce"];
+        } elseif ($_POST["method"] == "DELETE") {
+            $Annonces->delete($_POST["id"]);
+        }
+    }
+
     header("Location: ". $_SERVER['PHP_SELF']);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -79,15 +86,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php
                             foreach ($Annonces->get() as $annonce) {
                                 echo '<div class="media tm-notification-item">
-                                <div class="media-body">
-                                    <p class="mb-2"><b>'. htmlspecialchars($annonce["title"]) .'</b></p>
-                                    <p class="mb-2">'. htmlspecialchars($annonce["annonce"]) .'</p>
-                                    <span class="tm-small tm-text-color-secondary">'. htmlspecialchars($annonce["creation_time"]) .'</span>
-                                </div>
+                                <form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
+                                    <div class="media-body">
+                                        <input type="hidden" name="method" value="DELETE"/>
+                                        <input type="hidden" name="id" value="' . $annonce["id"] . '"/>
+                                        
+                                    
+                                        <p class="mb-2"><b>' . htmlspecialchars($annonce["title"]) . '</b><button type="submit" class="btn btn-secondary btn-sm" style="background-color:transparent; border: 0px"> <i class="far fa-trash-alt"></i> </button></p>
+                                        <p class="mb-2">' . htmlspecialchars($annonce["annonce"]) . '</p>
+                                        <span class="tm-small tm-text-color-secondary">' . htmlspecialchars($annonce["creation_time"]) . '</span>
+                                    </div>
+                                </form>
                             </div>';
                             }
                             ?>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -115,6 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </label>
                                         <textarea id="annonce" name="annonce" type="text" class="form-control validate" placeholder="<?php echo ($lastAnnonce ? htmlspecialchars($lastAnnonce['annonce']) : 'Annonce') ?>" required></textarea>
                                     </div>
+                                    <input type="hidden" name="method" value="POST"/>
                             </div>
 
                             <div class="col-6 mx-auto">

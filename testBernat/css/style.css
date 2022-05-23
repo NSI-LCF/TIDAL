@@ -4,10 +4,8 @@
 }
 
 table {
-    border-collapse: collapse;
     width: 98%;
     margin-left: 1%;
-    border-collapse: separate;
     border-spacing: 0 10px;
     margin-top: -10px;
 }
@@ -18,8 +16,8 @@ tr {
 }
 
 td {
-    border: solid .5px #000;
-    border-style: solid none;
+    border: solid .5px rgba(33, 38, 39, 1);
+    border-style: solid;
     padding: 5px;
     background-color: rgba(33, 38, 39, 0.438);
 }
