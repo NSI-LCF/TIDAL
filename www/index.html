@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./javascript/time.js"></script>
+</head>
+
+<body>
+
+    <br>
+    <div class="header">
+        <img src="./images/lcf.jpg" class="box img" alt="Logo LYCÉE" height="110px">
+        <p class=" box txt">LYCÉE COMTE DE FOIX</p>
+        <p id="time" class="box time"></p>
+    </div>
+    <!--METEO-->
+    <div id="meteo">
+        <a class="weatherwidget-io" href="https://forecast7.com/fr/42d491d51/andorra-la-vella/"
+            data-label_1="ANDORRA LA VELLA" data-label_2="Meteo" data-theme="original"
+            data-basecolor="rgba(53, 58, 59, 0.8)" data-accent="rgba(53, 58, 59, .5)">ANDORRA LA VELLA Meteo</a>
+        <script>
+            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+        </script>
+    </div>
+    <!--ABSENCES-->
+    <div class="boite" id="absences">
+        <h1>ABSENCES</h1>
+    </div>
+    <!--INFORMATIONS ADMINISTRATIVES-->
+    <div class="boite" id="informations">
+        <h1>INFORMATIONS</h1>
+    </div>
+    <!--NEWS-->
+    <div class="boite news">
+        <rssapp-carousel id="oaKUGXu7BgneKJ1z"></rssapp-carousel>
+        <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script> 
+    </div>
+    <script src="./javascript/fetchCalls.js"></script>
+</body>
+
+</html>
